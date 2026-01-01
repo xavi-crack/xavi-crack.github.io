@@ -2,37 +2,132 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Cobayas Studio - Ecuador</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cobayas Studio - Riobamba - Ecuador</title>
     <style>
+        /* ESTILOS GENERALES (CSS) */
         body {
-            background-color: #1a1a1a; /* Gris oscuro elegante */
-            color: #f0f0f0; /* Texto blanco suave */
-            font-family: 'Courier New', monospace; /* Estilo retro/código */
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+            font-family: 'Courier New', monospace;
             text-align: center;
-            padding-top: 50px;
+            margin: 0;
+            padding-bottom: 50px;
         }
-        h1 { color: #FFD700; } /* Dorado para "Huaquero" */
-        .game-title { font-size: 1.2em; margin: 20px; color: #ff6b6b; }
+
+        /* BARRA DE NAVEGACIÓN */
+        nav {
+            background-color: #000;
+            padding: 15px;
+            border-bottom: 2px solid #FFD700;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        nav a:hover { color: #FFD700; }
+
+        /* TÍTULOS */
+        h1 { color: #FFD700; margin-top: 40px; font-size: 2.5em; text-transform: uppercase; }
+        h2 { border-bottom: 1px solid #444; display: inline-block; padding-bottom: 5px; margin-top: 50px;}
+
+        /* SECCIONES DE PROYECTOS */
+        .project-card {
+            border: 1px solid #333;
+            background: #252525;
+            margin: 20px auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+        }
+        .project-title { font-size: 1.5em; color: #ff6b6b; margin-bottom: 10px; }
+        
+        /* BOTONES (LA MAGIA) */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #FFD700;
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .btn:hover { background-color: #fff; }
+        .btn-outline { background: transparent; border: 2px solid #FFD700; color: #FFD700; }
+        .btn-outline:hover { background: #FFD700; color: #000; }
+
     </style>
 </head>
 <body>
-    <h1>COBAYAS STUDIO</h1>
-    <p>Desarrollo de Videojuegos Independientes | Riobamba, Ecuador</p>
-    <hr style="width:50%; opacity:0.3;">
-    
-    <h2>PROYECTOS EN DESARROLLO</h2>
-    
-    <div class="game-title">
-        >  La Ciudad Perdida<br>
-        <span style="font-size:0.7em; color:gray;">(Aventura / Pixel Art)</span>
-    </div>
 
-    <div class="game-title">
-        > Leyendas (visual novels de EC)<br>
-        <span style="font-size:0.7em; color:gray;">(Endless Runner / Narrativo)</span>
-    </div>
+    <nav>
+        <a href="#juegos">JUEGOS</a>
+        <a href="#cursos">CURSOS</a>
+        <a href="#tienda">MERCH</a>
+        <a href="#nosotros">NOSOTROS</a>
+    </nav>
+
+    <h1>COBAYAS STUDIO</h1>
+    <p>Desarrollo Indie desde Riobamba, Ecuador</p>
+
+    <section id="juegos">
+        <h2>🎮 NUESTROS JUEGOS</h2>
+        
+        <div class="project-card">
+            <div class="project-title">La Ciudad Perdida</div>
+            <p>Aventura y exploración arqueológica en Pixel Art.</p>
+            <a href="#" class="btn">Descargar Demo (Pronto)</a>
+            <a href="#" class="btn btn-outline">Ver Trailer</a>
+        </div>
+
+        <div class="project-card">
+            <div class="project-title">Leyendas (Visual Novels)</div>
+            <p>Narrativa interactiva basada en mitos de Ecuador.</p>
+            <a href="#" class="btn">Jugar Gratis</a>
+            <p style="font-size:0.8em; color:gray;">*Opción de donación voluntaria disponible</p>
+        </div>
+    </section>
+
+    <section id="cursos">
+        <h2>🎓 ACADEMIA GDEVELOP</h2>
+        <div class="project-card">
+            <div class="project-title">Curso: Crea tu primer juego en 2D</div>
+            <p>Aprende desde cero sin saber programar código complejo.</p>
+            <p><strong>Precio: $9.99</strong></p>
+            <a href="#" class="btn">Comprar Curso</a>
+        </div>
+    </section>
+
+    <section id="tienda">
+        <h2>👕 MERCH OFICIAL</h2>
+        <p>Apoya al estudio comprando nuestra mercancía.</p>
+        <div class="project-card">
+            <p>Camisetas, Stickers y Arte Digital.</p>
+            <a href="https://wa.me/593XXXXXXXXX" class="btn">Catálogo en WhatsApp</a>
+            <a href="#" class="btn btn-outline">Tienda Internacional (Ko-fi)</a>
+        </div>
+    </section>
+
+    <section id="nosotros">
+        <h2>👾 SOBRE NOSOTROS</h2>
+        <p style="max-width: 600px; margin: 0 auto;">
+            Somos un estudio independiente fundado en 2024. 
+            Nuestra misión es crear historias que conecten la cultura local 
+            con mecánicas de juego globales.
+        </p>
+    </section>
 
     <br><br>
-    <p><i>Sitio oficial en construcción.</i></p>
+    <footer>
+        <p>© 2026 Cobayas Studio. Todos los derechos reservados.</p>
+    </footer>
+
 </body>
 </html>
