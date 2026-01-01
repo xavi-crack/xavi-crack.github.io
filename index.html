@@ -3,130 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cobayas Studio - Riobamba - Ecuador</title>
+    <title>Cobayas Studio - Ecuador</title>
     <style>
-        /* ESTILOS GENERALES (CSS) */
+        /* --- AQUÍ EMPIEZA LA MAGIA DEL CSS --- */
+        
         body {
-            background-color: #1a1a1a;
+            /* DEGRADADO DE FONDO (El truco visual) */
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
             color: #f0f0f0;
-            font-family: 'Courier New', monospace;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             text-align: center;
             margin: 0;
             padding-bottom: 50px;
+            min-height: 100vh; /* Asegura que cubra toda la pantalla */
         }
 
-        /* BARRA DE NAVEGACIÓN */
+        /* BARRA DE NAVEGACIÓN CON EFECTO CRISTAL */
         nav {
-            background-color: #000;
-            padding: 15px;
-            border-bottom: 2px solid #FFD700;
+            background: rgba(0, 0, 0, 0.6); /* Transparente */
+            backdrop-filter: blur(10px); /* Efecto borroso detrás */
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         nav a {
-            color: white;
+            color: #d1d1d1;
             text-decoration: none;
             margin: 0 15px;
-            font-weight: bold;
-            font-size: 1.1em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
         }
-        nav a:hover { color: #FFD700; }
+        nav a:hover { color: #FFD700; text-shadow: 0 0 10px #FFD700; }
 
-        /* TÍTULOS */
-        h1 { color: #FFD700; margin-top: 40px; font-size: 2.5em; text-transform: uppercase; }
-        h2 { border-bottom: 1px solid #444; display: inline-block; padding-bottom: 5px; margin-top: 50px;}
+        /* TÍTULO PRINCIPAL */
+        h1 { 
+            font-size: 3em; 
+            margin-top: 60px; 
+            text-transform: uppercase;
+            /* Texto con degradado dorado */
+            background: -webkit-linear-gradient(#FFD700, #ff8c00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0px 4px 10px rgba(0,0,0,0.5);
+        }
 
-        /* SECCIONES DE PROYECTOS */
+        /* TARJETAS DE PROYECTOS (GLASSMORFISMO) */
         .project-card {
-            border: 1px solid #333;
-            background: #252525;
-            margin: 20px auto;
-            padding: 20px;
+            background: rgba(255, 255, 255, 0.05); /* Muy transparente */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 30px auto;
+            padding: 30px;
             width: 80%;
             max-width: 600px;
-            border-radius: 10px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Sombra 3D */
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-        .project-title { font-size: 1.5em; color: #ff6b6b; margin-bottom: 10px; }
+        .project-card:hover {
+            transform: translateY(-5px); /* Se levanta al pasar el mouse */
+            box-shadow: 0 15px 40px rgba(0,0,0,0.7);
+            border-color: #FFD700;
+        }
         
-        /* BOTONES (LA MAGIA) */
+        .project-title { font-size: 1.8em; color: #fff; margin-bottom: 10px; font-weight: bold;}
+
+        /* BOTONES MODERNOS */
         .btn {
             display: inline-block;
-            padding: 10px 20px;
-            margin: 5px;
-            background-color: #FFD700;
+            padding: 12px 25px;
+            margin: 10px;
+            background: linear-gradient(90deg, #FFD700, #ffaa00);
             color: #000;
             text-decoration: none;
             font-weight: bold;
-            border-radius: 5px;
-            transition: 0.3s;
-            cursor: pointer;
+            border-radius: 50px; /* Redondos */
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4); /* Brillo */
+            transition: all 0.3s ease;
         }
-        .btn:hover { background-color: #fff; }
-        .btn-outline { background: transparent; border: 2px solid #FFD700; color: #FFD700; }
+        .btn:hover { 
+            transform: scale(1.05); /* Crece un poco */
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+        }
+
+        .btn-outline { 
+            background: transparent; 
+            border: 2px solid #FFD700; 
+            color: #FFD700; 
+            box-shadow: none;
+        }
         .btn-outline:hover { background: #FFD700; color: #000; }
+
+        hr { border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 50px auto; width: 60%;}
 
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#juegos">JUEGOS</a>
-        <a href="#cursos">CURSOS</a>
-        <a href="#tienda">MERCH</a>
-        <a href="#nosotros">NOSOTROS</a>
+        <a href="#juegos">Juegos</a>
+        <a href="#cursos">Cursos</a>
+        <a href="#tienda">Merch</a>
+        <a href="#nosotros">Nosotros</a>
     </nav>
 
     <h1>COBAYAS STUDIO</h1>
-    <p>Desarrollo Indie desde Riobamba, Ecuador</p>
+    <p style="font-size: 1.2em; color: #bbb;">Historias Pixeladas desde Ecuador</p>
 
     <section id="juegos">
-        <h2>🎮 NUESTROS JUEGOS</h2>
+        <br>
+        <h2 style="color: #ff6b6b;">🚀 NUESTROS JUEGOS</h2>
         
         <div class="project-card">
-            <div class="project-title">La Ciudad Perdida</div>
-            <p>Aventura y exploración arqueológica en Pixel Art.</p>
-            <a href="#" class="btn">Descargar Demo (Pronto)</a>
+            <div class="project-title">🏛️ La Ciudad Perdida</div>
+            <p>Explora ruinas antiguas, esquiva trampas y descubre el secreto de los Manteños.</p>
+            <a href="#" class="btn">Descargar Demo</a>
             <a href="#" class="btn btn-outline">Ver Trailer</a>
         </div>
 
         <div class="project-card">
-            <div class="project-title">Leyendas (Visual Novels)</div>
-            <p>Narrativa interactiva basada en mitos de Ecuador.</p>
+            <div class="project-title">📖 Leyendas (Visual Novel)</div>
+            <p>Decide tu destino en historias basadas en mitos locales.</p>
             <a href="#" class="btn">Jugar Gratis</a>
-            <p style="font-size:0.8em; color:gray;">*Opción de donación voluntaria disponible</p>
         </div>
     </section>
+
+    <hr>
 
     <section id="cursos">
-        <h2>🎓 ACADEMIA GDEVELOP</h2>
+        <h2 style="color: #4facfe;">🎓 ACADEMIA GDEVELOP</h2>
         <div class="project-card">
-            <div class="project-title">Curso: Crea tu primer juego en 2D</div>
-            <p>Aprende desde cero sin saber programar código complejo.</p>
-            <p><strong>Precio: $9.99</strong></p>
-            <a href="#" class="btn">Comprar Curso</a>
+            <div class="project-title">Curso: Crea Videojuegos sin Código</div>
+            <p>Domina GDevelop y publica tu primer juego en 1 mes.</p>
+            <p style="font-size: 1.5em; color: #FFD700;">$9.99 USD</p>
+            <a href="#" class="btn">Inscribirse Ahora</a>
         </div>
-    </section>
-
-    <section id="tienda">
-        <h2>👕 MERCH OFICIAL</h2>
-        <p>Apoya al estudio comprando nuestra mercancía.</p>
-        <div class="project-card">
-            <p>Camisetas, Stickers y Arte Digital.</p>
-            <a href="https://wa.me/593XXXXXXXXX" class="btn">Catálogo en WhatsApp</a>
-            <a href="#" class="btn btn-outline">Tienda Internacional (Ko-fi)</a>
-        </div>
-    </section>
-
-    <section id="nosotros">
-        <h2>👾 SOBRE NOSOTROS</h2>
-        <p style="max-width: 600px; margin: 0 auto;">
-            Somos un estudio independiente fundado en 2024. 
-            Nuestra misión es crear historias que conecten la cultura local 
-            con mecánicas de juego globales.
-        </p>
     </section>
 
     <br><br>
     <footer>
-        <p>© 2026 Cobayas Studio. Todos los derechos reservados.</p>
+        <p style="color: gray; font-size: 0.8em;">© 2026 Cobayas Studio. Hecho con ❤️ y mucho café.</p>
     </footer>
 
 </body>
