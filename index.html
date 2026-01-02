@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cobayas Estudio</title>
     <style>
-        /* 1. Cargar tu tipografía personalizada */
+        /* --- 1. CONFIGURACIÓN BÁSICA --- */
         @font-face {
             font-family: 'Cobayas';
             src: url('CobayasFont-Regular.ttf') format('truetype');
@@ -13,16 +13,15 @@
             font-style: normal;
         }
 
-        /* 2. Paleta de Colores del Logo */
         :root {
-            --color-fondo: #252427; /* Gris oscuro casi negro */
-            --color-texto: #F2E8DC; /* Crema / Hueso */
+            --color-fondo: #252427; 
+            --color-texto: #F2E8DC;
         }
 
         body {
             background-color: var(--color-fondo);
             color: var(--color-texto);
-            font-family: 'Helvetica', 'Arial', sans-serif; /* Fuente secundaria para textos largos */
+            font-family: 'Helvetica', 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             display: flex;
@@ -30,53 +29,113 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
+            overflow: hidden; /* Evita scrollbars durante animaciones */
+            perspective: 1000px; /* Necesario para el efecto 3D */
+        }
+
+        /* --- 2. CONTENEDOR PRINCIPAL (Para mover todo junto) --- */
+        .contenedor {
             text-align: center;
+            /* Iniciamos invisible para la animación de entrada */
+            opacity: 0; 
+            animation: entradaSuave 1.5s ease-out forwards;
+            transition: transform 0.1s ease-out; /* Suavidad para el movimiento del mouse */
         }
 
-        /* Estilo para el LOGO DE TEXTO (Reemplazo de la imagen) */
+        /* --- 3. LOGO COBAYAS --- */
         h1.logo-cobayas {
-            font-family: 'Cobayas', sans-serif; /* Usamos tu fuente aquí */
-            font-size: 120px; /* Tamaño grande para que parezca logo */
+            font-family: 'Cobayas', sans-serif;
+            font-size: 10vw; /* El tamaño se adapta a la pantalla */
             margin: 0;
-            padding: 20px;
-            letter-spacing: 5px; /* Un poco de espacio entre letras */
-            line-height: 1;
+            line-height: 0.8;
             text-transform: uppercase;
+            cursor: default;
+            transition: letter-spacing 0.5s ease, text-shadow 0.3s ease;
+            
+            /* Sombra sólida para dar efecto retro/bloque */
+            text-shadow: 4px 4px 0px rgba(0,0,0,0.3);
         }
 
+        /* Efecto al pasar el mouse sobre el logo */
+        h1.logo-cobayas:hover {
+            letter-spacing: 15px; /* Se separan las letras */
+        }
+
+        /* --- 4. SUBTÍTULO --- */
         p.subtitulo {
-            font-size: 1.5rem;
-            margin-top: 10px;
-            opacity: 0.8;
-            max-width: 600px;
-            padding: 0 20px;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            letter-spacing: 2px;
+            opacity: 0; /* Invisible al inicio */
+            animation: entradaArriba 1s ease-out 0.5s forwards; /* Retraso de 0.5s */
+        }
+
+        /* --- 5. BOTÓN INTERACTIVO --- */
+        .boton-container {
+            margin-top: 50px;
+            opacity: 0;
+            animation: entradaArriba 1s ease-out 1s forwards; /* Retraso de 1s */
         }
 
         .boton {
-            margin-top: 40px;
-            padding: 15px 40px;
-            font-family: 'Cobayas', sans-serif; /* También en el botón */
-            font-size: 1.2rem;
-            background-color: var(--color-texto);
-            color: var(--color-fondo);
-            border: none;
+            padding: 15px 50px;
+            font-family: 'Cobayas', sans-serif;
+            font-size: 1.5rem;
+            background-color: transparent;
+            color: var(--color-texto);
+            border: 2px solid var(--color-texto);
             cursor: pointer;
             text-decoration: none;
-            transition: transform 0.2s ease;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            display: inline-block;
         }
 
+        /* Animación de llenado al pasar el mouse */
         .boton:hover {
+            background-color: var(--color-texto);
+            color: var(--color-fondo);
             transform: scale(1.05);
+            box-shadow: 0px 0px 15px rgba(242, 232, 220, 0.3);
         }
+
+        /* --- 6. ANIMACIONES (KEYFRAMES) --- */
+        @keyframes entradaSuave {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes entradaArriba {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 0.8; transform: translateY(0); }
+        }
+
     </style>
 </head>
 <body>
 
-    <h1 class="logo-cobayas">COBAYAS</h1>
+    <div class="contenedor" id="escenario">
+        <h1 class="logo-cobayas">COBAYAS</h1>
+        <p class="subtitulo">ESTUDIO CREATIVO</p>
+        
+        <div class="boton-container">
+            <a href="#" class="boton">ENTRAR</a>
+        </div>
+    </div>
 
-    <p class="subtitulo">Estudio Creativo</p>
+    <script>
+        const escenario = document.getElementById('escenario');
 
-    <a href="#" class="boton">ENTRAR</a>
+        document.addEventListener('mousemove', (e) => {
+            // Calcular la posición del mouse en relación al centro de la pantalla
+            const x = (window.innerWidth / 2 - e.pageX) / 25; // El divisor (25) controla la intensidad
+            const y = (window.innerHeight / 2 - e.pageY) / 25;
+
+            // Aplicar la transformación 3D al contenedor
+            escenario.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+        });
+    </script>
 
 </body>
 </html>
