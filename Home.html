@@ -1,1 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Cobayas</title>
+    <style>
+        /* Mantenemos tu identidad visual */
+        @font-face {
+            font-family: 'Cobayas';
+            src: url('CobayasFont-Regular.ttf') format('truetype');
+        }
 
+        :root {
+            --color-fondo: #252427; 
+            --color-texto: #F2E8DC;
+        }
+
+        body {
+            background-color: var(--color-fondo);
+            color: var(--color-texto);
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            /* Animación de entrada para que aparezca suavemente */
+            animation: aparecer 1.5s ease;
+        }
+
+        /* Cabecera simple */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--color-texto);
+        }
+
+        .mini-logo {
+            font-family: 'Cobayas', sans-serif;
+            font-size: 2rem;
+            text-decoration: none;
+            color: var(--color-texto);
+        }
+
+        /* Menú de navegación */
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: var(--color-texto);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Contenido principal */
+        main {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        h2 {
+            font-family: 'Cobayas', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .galeria-placeholder {
+            margin-top: 40px;
+            padding: 50px;
+            border: 1px dashed var(--color-texto);
+            opacity: 0.5;
+        }
+
+        @keyframes aparecer {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="mini-logo">COBAYAS</a>
+        <nav>
+            <a href="#">PROYECTOS</a>
+            <a href="#">NOSOTROS</a>
+            <a href="#">CONTACTO</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>BIENVENIDOS</h2>
+        <p>Aquí comenzará tu portafolio o contenido.</p>
+        
+        <div class="galeria-placeholder">
+            [Espacio para tus futuros proyectos]
+        </div>
+    </main>
+
+</body>
+</html>
