@@ -1,1 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Cobayas</title>
+    <style>
+        @font-face {
+            font-family: 'Cobayas';
+            src: url('CobayasFont-Regular.ttf') format('truetype');
+        }
 
+        :root {
+            --color-fondo: #252427; 
+            --color-texto: #F2E8DC;
+        }
+
+        body {
+            background-color: var(--color-fondo);
+            color: var(--color-texto);
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            animation: aparecer 1s ease;
+        }
+
+        /* Encabezado igual al Home */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--color-texto);
+            margin-bottom: 40px;
+        }
+
+        .mini-logo {
+            font-family: 'Cobayas', sans-serif;
+            font-size: 2rem;
+            text-decoration: none;
+            color: var(--color-texto);
+        }
+
+        h2 {
+            font-family: 'Cobayas', sans-serif;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* --- GALERÍA TIPO GRID (Rejilla) --- */
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .item-galeria {
+            border: 2px solid var(--color-texto);
+            height: 250px; /* Altura fija para uniformidad */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            background-color: #333; /* Fondo temporal si no hay imagen */
+        }
+
+        .item-galeria:hover {
+            transform: scale(1.03);
+            border-color: #fff;
+        }
+
+        /* Texto que aparece al pasar el mouse */
+        .info-proyecto {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(37, 36, 39, 0.9);
+            padding: 10px;
+            text-align: center;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .item-galeria:hover .info-proyecto {
+            transform: translateY(0);
+        }
+
+        .info-proyecto h3 {
+            font-family: 'Cobayas', sans-serif;
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        @keyframes aparecer {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="Home.html" class="mini-logo">VOLVER</a> <span style="font-family:'Cobayas'; font-size:1.5rem;">PORTAFOLIO</span>
+    </header>
+
+    <h2>NUESTROS TRABAJOS</h2>
+
+    <div class="galeria">
+        <div class="item-galeria">
+            <span>IMAGEN PROYECTO 1</span>
+            <div class="info-proyecto">
+                <h3>VIDEOJUEGO VISUAL NOVEL</h3>
+                <p>Arte y Diseño</p>
+            </div>
+        </div>
+
+        <div class="item-galeria">
+            <span>IMAGEN PROYECTO 2</span>
+            <div class="info-proyecto">
+                <h3>ILUSTRACIÓN PIXEL</h3>
+                <p>Concept Art</p>
+            </div>
+        </div>
+
+        <div class="item-galeria">
+            <span>IMAGEN PROYECTO 3</span>
+            <div class="info-proyecto">
+                <h3>DISEÑO COBAYAS</h3>
+                <p>Branding</p>
+            </div>
+        </div>
+        
+        </div>
+
+</body>
+</html>
