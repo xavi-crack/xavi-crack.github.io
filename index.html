@@ -3,209 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cobayas Studio - Ecuador</title>
+    <title>Cobayas Estudio</title>
     <style>
-        /* --- PALETA DE COLORES ESTRICTA (Basada en el Logo) --- */
+        /* 1. Cargar tu tipografía personalizada */
+        @font-face {
+            font-family: 'Cobayas';
+            src: url('CobayasFont-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* 2. Paleta de Colores del Logo */
         :root {
-            --color-fondo: #222222;  /* El color oscuro exacto del fondo de tu logo */
-            --color-acento: #F0EAD6; /* El color crema exacto de las letras de tu logo */
+            --color-fondo: #252427; /* Gris oscuro casi negro */
+            --color-texto: #F2E8DC; /* Crema / Hueso */
         }
 
         body {
             background-color: var(--color-fondo);
-            color: var(--color-acento);
-            /* Usamos una fuente monoespaciada para el toque "indie/retro" */
-            font-family: 'Courier New', Courier, monospace; 
-            text-align: center;
+            color: var(--color-texto);
+            font-family: 'Helvetica', 'Arial', sans-serif; /* Fuente secundaria para textos largos */
             margin: 0;
-            padding-bottom: 50px;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             min-height: 100vh;
+            text-align: center;
         }
 
-        /* BARRA DE NAVEGACIÓN MINIMALISTA */
-        nav {
-            background: var(--color-fondo);
+        /* Estilo para el LOGO DE TEXTO (Reemplazo de la imagen) */
+        h1.logo-cobayas {
+            font-family: 'Cobayas', sans-serif; /* Usamos tu fuente aquí */
+            font-size: 120px; /* Tamaño grande para que parezca logo */
+            margin: 0;
             padding: 20px;
-            border-bottom: 2px solid var(--color-acento);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        nav a {
-            color: var(--color-acento);
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
+            letter-spacing: 5px; /* Un poco de espacio entre letras */
+            line-height: 1;
             text-transform: uppercase;
-            letter-spacing: 2px; /* Letras más separadas para elegancia */
-            transition: all 0.3s;
-            border-bottom: 2px solid transparent;
-        }
-        nav a:hover {
-            border-bottom: 2px solid var(--color-acento); /* Subrayado al pasar el mouse */
         }
 
-        /* ESTILO DEL LOGO PRINCIPAL */
-        .main-logo {
-            max-width: 80%;    /* Que no sea gigante en pantallas grandes */
-            width: 500px;      /* Tamaño ideal */
-            margin-top: 60px;
-            margin-bottom: 10px;
-            /* Truco: si la imagen no carga, muestra este fondo para que no se vea roto */
-            background-color: var(--color-fondo); 
-        }
-        .subtitle {
-            font-size: 1.1em;
-            letter-spacing: 1px;
-            margin-bottom: 50px;
+        p.subtitulo {
+            font-size: 1.5rem;
+            margin-top: 10px;
             opacity: 0.8;
-        }
-
-        /* TÍTULOS DE SECCIÓN */
-        h2 {
-            color: var(--color-acento);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            border-bottom: 2px solid var(--color-acento);
-            display: inline-block;
-            padding-bottom: 10px;
-            margin-top: 60px;
-        }
-
-        /* TARJETAS DE PROYECTOS (Estilo "Bloque de Piedra") */
-        .project-card {
-            background-color: var(--color-fondo); /* Fondo sólido */
-            border: 3px solid var(--color-acento); /* Borde grueso color crema */
-            margin: 40px auto;
-            padding: 30px;
-            width: 80%;
             max-width: 600px;
-            /* Sombra dura para efecto retro */
-            box-shadow: 8px 8px 0px rgba(240, 234, 214, 0.2); 
-            transition: transform 0.2s;
-        }
-        .project-card:hover {
-            transform: translate(-4px, -4px); /* Pequeño movimiento al pasar el mouse */
-            box-shadow: 12px 12px 0px rgba(240, 234, 214, 0.3);
-        }
-        
-        .project-title {
-            font-size: 1.8em;
-            color: var(--color-acento);
-            margin-bottom: 15px;
-            font-weight: bold;
-            text-transform: uppercase;
+            padding: 0 20px;
         }
 
-        /* BOTONES BICOLOR */
-        .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            margin: 10px;
-            background-color: var(--color-acento); /* Botón Crema */
-            color: var(--color-fondo);             /* Texto Oscuro */
-            text-decoration: none;
-            font-weight: bold;
-            text-transform: uppercase;
-            border: 3px solid var(--color-acento);
-            transition: all 0.3s ease;
-        }
-        .btn:hover {
-            background-color: var(--color-fondo); /* Invertir colores al pasar mouse */
-            color: var(--color-acento);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            color: var(--color-acento);
-        }
-        .btn-outline:hover {
-            background-color: var(--color-acento);
+        .boton {
+            margin-top: 40px;
+            padding: 15px 40px;
+            font-family: 'Cobayas', sans-serif; /* También en el botón */
+            font-size: 1.2rem;
+            background-color: var(--color-texto);
             color: var(--color-fondo);
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.2s ease;
         }
 
-        /* LÍNEA SEPARADORA */
-        hr {
-            border: 0;
-            border-top: 2px solid var(--color-acento);
-            margin: 60px auto;
-            width: 40%;
-            opacity: 0.5;
+        .boton:hover {
+            transform: scale(1.05);
         }
-
-        footer {
-            margin-top: 60px;
-            font-size: 0.9em;
-            opacity: 0.7;
-        }
-
     </style>
 </head>
 <body>
 
-    <nav>
-        <a href="#juegos">Juegos</a>
-        <a href="#cursos">Cursos</a>
-        <a href="#tienda">Merch</a>
-        <a href="#nosotros">Nosotros</a>
-    </nav>
+    <h1 class="logo-cobayas">COBAYAS</h1>
 
-    <img src="logo.png" alt="Cobayas Studio" class="main-logo">
-    
-    <p class="subtitle">Desarrollo Indie | Riobamba, Ecuador</p>
+    <p class="subtitulo">Estudio Creativo</p>
 
-    <section id="juegos">
-        <h2>NUESTROS JUEGOS</h2>
-        
-        <div class="project-card">
-            <div class="project-title">La Ciudad Perdida</div>
-            <p>Explora ruinas antiguas, esquiva trampas y descubre el secreto de los Manteños. (Pixel Art Aventura)</p>
-            <a href="#" class="btn">Descargar Demo</a>
-            <a href="#" class="btn btn-outline">Ver Trailer</a>
-        </div>
-
-        <div class="project-card">
-            <div class="project-title">Leyendas (Visual Novel)</div>
-            <p>Decide tu destino en historias interactivas basadas en mitos locales del Ecuador.</p>
-            <a href="#" class="btn">Jugar Gratis</a>
-        </div>
-    </section>
-
-    <hr>
-
-    <section id="cursos">
-        <h2>ACADEMIA GDEVELOP</h2>
-        <div class="project-card">
-            <div class="project-title">Curso: Crea sin Código</div>
-            <p>Domina GDevelop y publica tu primer videojuego 2D en menos de un mes.</p>
-            <p style="font-size: 1.5em; font-weight: bold;">$9.99 USD</p>
-            <a href="#" class="btn">Inscribirse</a>
-        </div>
-    </section>
-
-    <hr>
-
-    <section id="tienda">
-        <h2>MERCH OFICIAL</h2>
-        <div class="project-card">
-            <p>Camisetas, Stickers y Arte Digital inspirado en nuestros juegos.</p>
-            <a href="https://wa.me/593999999999" class="btn">Catálogo WhatsApp (Ec)</a>
-            <a href="#" class="btn btn-outline">Tienda Internacional</a>
-        </div>
-    </section>
-
-    <hr>
-
-    <section id="nosotros">
-        <h2>SOBRE EL ESTUDIO</h2>
-        <p style="max-width: 600px; margin: 0 auto; padding: 20px;">
-            Cobayas Studio nace en Riobamba con una misión: fusionar la riqueza cultural y visual del Ecuador con mecánicas de juego desafiantes y estéticas Pixel Art cuidadas.
-        </p>
-    </section>
-
-    <footer>
-        <p>© 2026 Cobayas Studio. Todos los derechos reservados.</p>
-    </footer>
+    <a href="#" class="boton">ENTRAR</a>
 
 </body>
 </html>
