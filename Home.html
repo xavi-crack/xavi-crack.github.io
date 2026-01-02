@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio - Cobayas</title>
     <style>
-        /* Mantenemos tu identidad visual */
+        /* --- 1. FUENTES Y VARIABLES --- */
         @font-face {
             font-family: 'Cobayas';
             src: url('CobayasFont-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
         }
 
         :root {
@@ -16,44 +18,57 @@
             --color-texto: #F2E8DC;
         }
 
+        /* --- 2. ESTILOS GENERALES --- */
         body {
             background-color: var(--color-fondo);
             color: var(--color-texto);
             font-family: 'Helvetica', 'Arial', sans-serif;
             margin: 0;
-            padding: 20px;
-            /* Animación de entrada para que aparezca suavemente */
+            padding: 0; /* Quitamos padding global para que el header toque los bordes */
             animation: aparecer 1.5s ease;
         }
 
-        /* Cabecera simple */
+        /* --- 3. ENCABEZADO (HEADER) --- */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-bottom: 20px;
+            padding: 20px 40px;
             border-bottom: 2px solid var(--color-texto);
         }
 
         .mini-logo {
             font-family: 'Cobayas', sans-serif;
-            font-size: 2rem;
+            font-size: 2.5rem;
             text-decoration: none;
             color: var(--color-texto);
+            letter-spacing: 2px;
         }
 
-        /* Menú de navegación */
+        /* --- 4. MENÚ DE NAVEGACIÓN --- */
+        nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
         nav a {
-            margin-left: 20px;
+            font-family: 'Cobayas', sans-serif;
+            font-size: 1.1rem;
             text-decoration: none;
             color: var(--color-texto);
-            font-weight: bold;
-            font-size: 1.1rem;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
         }
 
-        /* Contenido principal */
+        nav a:hover {
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+        }
+
+        /* --- 5. CONTENIDO PRINCIPAL --- */
         main {
-            margin-top: 50px;
+            padding: 50px 20px;
             text-align: center;
         }
 
@@ -63,13 +78,7 @@
             margin-bottom: 10px;
         }
 
-        .galeria-placeholder {
-            margin-top: 40px;
-            padding: 50px;
-            border: 1px dashed var(--color-texto);
-            opacity: 0.5;
-        }
-
+        /* Animación de entrada */
         @keyframes aparecer {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -79,24 +88,21 @@
 <body>
 
     <header>
-        <a href="index" class="mini-logo">COBAYAS</a>
+        <a href="index.html" class="mini-logo">COBAYAS</a>
+        
         <nav>
-            <a href="#">PORTAFOLIO</a>
+            <a href="portafolio.html">PORTAFOLIO</a>
             <a href="#">PROYECTOS</a>
             <a href="#">ACADEMIA</a>
             <a href="#">JUEGOS</a>
             <a href="#">NOSOTROS</a>
-            <a href="#">MERCHANDISIG</a>
+            <a href="#">MERCHANDISING</a>
         </nav>
     </header>
 
     <main>
         <h2>BIENVENIDOS</h2>
-        <p>Aquí comenzará tu portafolio o contenido.</p>
-        
-        <div class="galeria-placeholder">
-            [Espacio para tus futuros proyectos]
-        </div>
+        <p>Selecciona una opción del menú para explorar.</p>
     </main>
 
 </body>
