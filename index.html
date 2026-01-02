@@ -120,45 +120,34 @@
         <p class="subtitulo">ESTUDIO CREATIVO</p>
         
         <div class="boton-container">
-            <a class="boton">ENTRAR</a>
-<script>
-    // 1. Efecto 3D del mouse (El que ya tenías)
-    const escenario = document.getElementById('escenario');
-    document.addEventListener('mousemove', (e) => {
-        const x = (window.innerWidth / 2 - e.pageX) / 25;
-        const y = (window.innerHeight / 2 - e.pageY) / 25;
-        escenario.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
-    });
-
-    // 2. NUEVO: Lógica del botón ENTRAR con transición
-    const boton = document.querySelector('.boton');
-    
-    boton.addEventListener('click', function(e) {
-        e.preventDefault(); // Evita que salte de golpe a la otra página
-
-        // Hacemos que toda la página se desvanezca
-        document.body.style.transition = "opacity 1s ease";
-        document.body.style.opacity = "0";
-
-        // Esperamos 1 segundo (lo que dura la animación) y cambiamos de página
-        setTimeout(() => {
-            window.location.href = 'Inicio.html'; // <--- CAMBIA ESTO por el nombre de tu archivo
-        }, 1000);
-    });
-</script>
+            <a href="#" class="boton">ENTRAR</a>
         </div>
     </div>
 
     <script>
+        // 1. Efecto 3D del mouse (Parallax)
         const escenario = document.getElementById('escenario');
-
         document.addEventListener('mousemove', (e) => {
-            // Calcular la posición del mouse en relación al centro de la pantalla
-            const x = (window.innerWidth / 2 - e.pageX) / 25; // El divisor (25) controla la intensidad
+            const x = (window.innerWidth / 2 - e.pageX) / 25;
             const y = (window.innerHeight / 2 - e.pageY) / 25;
-
-            // Aplicar la transformación 3D al contenedor
             escenario.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+        });
+
+        // 2. Lógica del botón ENTRAR con transición
+        const boton = document.querySelector('.boton');
+        
+        boton.addEventListener('click', function(e) {
+            e.preventDefault(); // Evita que salte de golpe
+
+            // Hacemos que toda la página se desvanezca
+            document.body.style.transition = "opacity 1s ease";
+            document.body.style.opacity = "0";
+
+            // Esperamos 1 segundo y cambiamos al archivo 'Home.html'
+            setTimeout(() => {
+                // AQUÍ ESTÁ LA CORRECCIÓN CLAVE:
+                window.location.href = 'Home.html'; 
+            }, 1000);
         });
     </script>
 
