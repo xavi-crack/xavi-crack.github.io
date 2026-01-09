@@ -5,35 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cobayas Studio - Ecuador</title>
     <style>
-        /* --- CONFIGURACIÓN DE COLORES Y FUENTES --- */
+        /* --- VARIABLES DE COLOR (IDENTIDAD COBAYAS) --- */
         :root {
-            --fondo: #222222;
+            --fondo: #000000;
             --texto: #F0EAD6;
         }
 
-        html {
-            scroll-behavior: smooth; /* ¡ESTO HACE LA MAGIA DEL SCROLL SUAVE! */
-        }
-
+        /* --- CONFIGURACIÓN BASE --- */
+        html { scroll-behavior: smooth; }
+        
         body {
             background-color: var(--fondo);
             color: var(--texto);
             font-family: 'Courier New', Courier, monospace;
             margin: 0;
-            padding: 0;
             line-height: 1.6;
         }
 
-        /* --- BARRA DE NAVEGACIÓN FIJA (SIEMPRE ARRIBA) --- */
+        /* --- NAVEGACIÓN TIPO APP --- */
         nav {
-            background-color: var(--fondo);
+            background-color: rgba(34, 34, 34, 0.95); /* Semi-transparente */
             border-bottom: 2px solid var(--texto);
             padding: 15px 0;
-            position: fixed; /* Se queda pegada arriba */
+            position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
             text-align: center;
+            backdrop-filter: blur(5px);
         }
 
         nav a {
@@ -41,89 +40,112 @@
             text-decoration: none;
             font-weight: bold;
             font-size: 1.1em;
-            margin: 0 15px;
+            margin: 0 20px;
             text-transform: uppercase;
-            display: inline-block;
         }
+        nav a:hover { text-decoration: underline; }
 
-        nav a:hover {
-            border-bottom: 2px solid var(--texto);
-        }
-
-        /* --- SECCIONES (BLOQUES GIGANTES) --- */
-        section {
-            padding: 80px 20px; /* Espacio arriba y abajo */
-            min-height: 80vh;   /* Cada sección ocupa casi toda la pantalla */
+        /* --- PORTADA GIGANTE (HERO) --- */
+        header {
+            height: 100vh; /* Pantalla completa */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            border-bottom: 1px solid rgba(240, 234, 214, 0.1);
-        }
-
-        /* --- ESTILOS DE ELEMENTOS --- */
-        .logo-principal {
-            width: 300px;
-            max-width: 80%;
-            margin-top: 50px;
-        }
-
-        h1 { font-size: 2.5em; margin-bottom: 10px; text-transform: uppercase; }
-        h2 { 
-            font-size: 2em; 
-            border-bottom: 3px solid var(--texto); 
-            padding-bottom: 10px; 
-            margin-bottom: 40px;
-            text-transform: uppercase;
-        }
-        
-        p { max-width: 700px; font-size: 1.1em; text-align: center; margin-bottom: 20px; }
-
-        /* TARJETAS (CAJAS DE CONTENIDO) */
-        .grid-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            width: 100%;
-            max-width: 1000px;
-        }
-
-        .card {
-            border: 2px solid var(--texto);
+            text-align: center;
             padding: 20px;
-            width: 300px;
-            background-color: rgba(255,255,255,0.05);
+        }
+
+        .logo-hero {
+            width: 500px;
+            max-width: 90%;
+            margin-bottom: 20px;
+        }
+
+        .hero-text { font-size: 1.5em; max-width: 600px; margin-bottom: 40px; }
+
+        /* --- SECCIONES TIPO "EVENTO" (Imagen + Texto) --- */
+        section {
+            padding: 80px 10%;
+            border-top: 1px solid rgba(240, 234, 214, 0.1);
+        }
+
+        .container-split {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap; /* Para que funcione en celular */
+        }
+
+        /* Alternar orden en cada sección para que sea dinámico */
+        .reverse { flex-direction: row-reverse; }
+
+        .text-box { flex: 1; min-width: 300px; }
+        .image-box { flex: 1; min-width: 300px; }
+
+        /* Estilo de las Imágenes */
+        .image-box img {
+            width: 100%;
+            border: 4px solid var(--texto);
+            box-shadow: 10px 10px 0px rgba(240, 234, 214, 0.2); /* Sombra sólida retro */
             transition: transform 0.3s;
         }
-        .card:hover { transform: translateY(-5px); background-color: rgba(240, 234, 214, 0.1); }
-        
-        .card-title { font-size: 1.3em; font-weight: bold; margin-bottom: 10px; color: var(--texto); }
+        .image-box img:hover { transform: scale(1.02); }
 
-        /* BOTONES */
+        h2 {
+            font-size: 2.5em;
+            text-transform: uppercase;
+            border-left: 5px solid var(--texto);
+            padding-left: 20px;
+            margin-bottom: 30px;
+        }
+
+        /* --- BOTONES GRANDES --- */
         .btn {
             display: inline-block;
             background-color: var(--texto);
             color: var(--fondo);
-            padding: 10px 20px;
-            text-decoration: none;
+            padding: 15px 30px;
             font-weight: bold;
-            margin-top: 10px;
+            text-decoration: none;
+            text-transform: uppercase;
+            margin-top: 20px;
             border: 2px solid var(--texto);
         }
         .btn:hover {
             background-color: var(--fondo);
             color: var(--texto);
+            cursor: pointer;
         }
-        .btn-outline { background: transparent; color: var(--texto); }
-        .btn-outline:hover { background: var(--texto); color: var(--fondo); }
 
-        /* PIE DE PÁGINA */
-        footer {
-            padding: 40px;
+        /* --- INFO RÁPIDA (GRID) --- */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
             text-align: center;
+            margin-top: 50px;
+        }
+        .info-item {
+            border: 2px solid var(--texto);
+            padding: 20px;
+            background: rgba(255,255,255,0.05);
+        }
+        .big-number { font-size: 3em; font-weight: bold; display: block; }
+
+        /* --- FOOTER SIMPLE --- */
+        footer {
+            text-align: center;
+            padding: 50px;
+            background: #111;
             font-size: 0.9em;
-            opacity: 0.7;
+            opacity: 0.8;
+        }
+
+        /* Ajuste para móviles */
+        @media (max-width: 768px) {
+            .container-split { flex-direction: column !important; }
+            h2 { font-size: 2em; }
         }
     </style>
 </head>
@@ -131,83 +153,86 @@
 
     <nav>
         <a href="#inicio">Inicio</a>
-        <a href="#juegos">Juegos</a>
-        <a href="#cursos">Cursos</a>
-        <a href="#merch">Merch</a>
-        <a href="#nosotros">Nosotros</a>
+        <a href="#proyectos">Juegos</a>
+        <a href="#academia">Cursos</a>
+        <a href="#estudio">Nosotros</a>
     </nav>
 
-    <section id="inicio">
-        <img src="logo.png" alt="Cobayas Studio Logo" class="logo-principal">
-        <p style="margin-top: 20px; font-style: italic;">
-            "Videojuegos con identidad y alma desde los Andes."
+    <header id="inicio">
+        <img src="logo.png" alt="Cobayas Studio" class="logo-hero">
+        <p class="hero-text">
+            Creamos mundos pixelados con identidad ecuatoriana.
         </p>
-        <a href="#juegos" class="btn">Ver Proyectos</a>
-    </section>
+        <a href="#proyectos" class="btn">Explorar Proyectos</a>
+    </header>
 
-    <section id="juegos">
-        <h2>Nuestros Juegos</h2>
-        <div class="grid-container">
-            
-            <div class="card">
-                <div class="card-title">🗿 LA CIUDAD PERDIDA</div>
-                <p style="font-size: 0.9em;">Aventura de plataformas y pixel art. Descubre los secretos de la cultura Manteña.</p>
-                <a href="#" class="btn">Descargar Demo</a>
+    <section id="proyectos">
+        <div class="container-split">
+            <div class="text-box">
+                <h2>La Ciudad Perdida</h2>
+                <p>Una aventura arqueológica en el corazón de los Andes. Controla a un huaquero en busca de los secretos de la cultura Manteña.</p>
+                <ul>
+                    <li>> Estilo Pixel Art detallado.</li>
+                    <li>> Mecánicas de plataformas y exploración.</li>
+                    <li>> Banda sonora con instrumentos andinos.</li>
+                </ul>
+                <a href="#" class="btn">Ver Trailer</a>
             </div>
-
-            <div class="card">
-                <div class="card-title">🕯️ LEYENDAS</div>
-                <p style="font-size: 0.9em;">Visual Novel interactiva. Tus decisiones cambian el mito.</p>
-                <a href="#" class="btn btn-outline">Jugar Gratis</a>
+            <div class="image-box">
+                <img src="juego1.jpg" alt="Gameplay Ciudad Perdida">
             </div>
-
         </div>
     </section>
 
-    <section id="cursos">
-        <h2>Academia Cobayas</h2>
-        <p>Aprende a crear videojuegos sin saber programar código complejo.</p>
+    <section>
+        <div class="container-split reverse">
+            <div class="text-box">
+                <h2>Leyendas Visual Novel</h2>
+                <p>¿Qué pasaría si pudieras cambiar el final de los mitos ecuatorianos? Una novela visual interactiva donde tus decisiones importan.</p>
+                <a href="#" class="btn">Jugar Gratis</a>
+            </div>
+            <div class="image-box">
+                <img src="juego2.jpg" alt="Arte de Leyendas">
+            </div>
+        </div>
+    </section>
+
+    <section id="academia">
+        <h2>Academia & Comunidad</h2>
+        <p>No solo hacemos juegos, enseñamos a hacerlos. Únete a la nueva ola de desarrolladores indie.</p>
         
-        <div class="card" style="width: 80%; max-width: 600px;">
-            <div class="card-title">🎓 DOMINA GDEVELOP (2026)</div>
-            <p>Curso completo: Desde instalar el motor hasta publicar tu juego en Itch.io.</p>
-            <p><strong>Nivel:</strong> Principiante | <strong>Precio:</strong> $9.99</p>
-            <a href="#" class="btn">Ver Temario e Inscribirse</a>
-        </div>
-    </section>
-
-    <section id="merch">
-        <h2>Tienda Oficial</h2>
-        <p>Apoya el desarrollo independiente vistiendo nuestra piel.</p>
-        
-        <div class="grid-container">
-            <div class="card">
-                <div class="card-title">👕 CAMISETAS</div>
-                <p>Diseños exclusivos de pixel art.</p>
-                <a href="https://wa.me/593XXXXXXXXX" class="btn">Pedir por WhatsApp</a>
+        <div class="info-grid">
+            <div class="info-item">
+                <span class="big-number">GDevelop</span>
+                <p>Curso Especializado: Crea sin código.</p>
+                <a href="#" class="btn" style="padding: 5px 10px; font-size: 0.8em;">Ver Curso</a>
             </div>
-            <div class="card">
-                <div class="card-title">☕ TAZAS & STICKERS</div>
-                <p>Lleva a Cobayas en tu escritorio.</p>
-                <a href="https://wa.me/593XXXXXXXXX" class="btn">Ver Catálogo</a>
+            <div class="info-item">
+                <span class="big-number">Merch</span>
+                <p>Camisetas y Stickers disponibles en Riobamba.</p>
+                <a href="https://wa.me/5939999999" class="btn" style="padding: 5px 10px; font-size: 0.8em;">Pedir</a>
+            </div>
+            <div class="info-item">
+                <span class="big-number">Discord</span>
+                <p>Comunidad privada para alumnos.</p>
             </div>
         </div>
     </section>
 
-    <section id="nosotros">
-        <h2>Sobre Cobayas</h2>
-        <p>
-            Somos un estudio independiente fundado en Riobamba. 
-            Nuestro objetivo es demostrar que en Ecuador se puede vivir del arte digital.
-            Mezclamos historia, cultura y mecánicas modernas.
+    <section id="estudio" style="text-align: center;">
+        <h2>Únete a la Aventura</h2>
+        <p style="max-width: 600px; margin: 0 auto;">
+            Estamos construyendo la industria desde Riobamba. Participamos en Game Jams y eventos locales.
         </p>
         <br>
+        <div class="image-box" style="max-width: 600px; margin: 20px auto;">
+            <img src="promo.jpg" alt="Equipo Cobayas">
+        </div>
         <p>📧 contacto@cobayas.studio</p>
     </section>
 
     <footer>
-        <p>© 2026 Cobayas Studio. Todos los derechos reservados.</p>
-        <p>Hecho con código, café y cariño.</p>
+        <p>© 2026 Cobayas Studio. Riobamba, Ecuador.</p>
     </footer>
 
 </body>
