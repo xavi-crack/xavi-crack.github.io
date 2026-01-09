@@ -21,7 +21,7 @@
             overflow: hidden;
         }
 
-        /* 2. EL BOTÓN (SÓLIDO Y ESTÁTICO) */
+        /* 2. EL BOTÓN */
         .boton-intro {
             font-family: 'MiFuenteCobayas', sans-serif; 
             font-size: 8em; 
@@ -29,19 +29,25 @@
             text-decoration: none;
             text-transform: uppercase;
             
-            /* Ya no hay animación aquí */
-            transition: transform 0.3s ease; /* Solo suaviza el crecimiento al pasar el mouse */
+            /* Estado inicial: letras normales */
+            letter-spacing: 0px; 
+            
+            /* La transición ahora anima el espaciado */
+            transition: letter-spacing 0.8s ease; 
         }
 
-        /* 3. EFECTO AL PASAR EL MOUSE (Solo crece, no brilla) */
+        /* 3. EFECTO AL PASAR EL MOUSE (SEPARACIÓN) */
         .boton-intro:hover {
-            transform: scale(1.1); 
+            /* Aquí ocurre la magia: se separan 20px */
+            letter-spacing: 20px; 
             cursor: pointer;
         }
 
         /* Celular */
         @media (max-width: 768px) { 
-            .boton-intro { font-size: 15vw; } /* Se ajusta al ancho del celu */
+            .boton-intro { font-size: 15vw; } 
+            /* En celular la separación es menor para que no se rompa */
+            .boton-intro:hover { letter-spacing: 5px; }
         }
     </style>
 </head>
