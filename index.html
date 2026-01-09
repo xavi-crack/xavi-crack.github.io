@@ -3,156 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Cobayas Estudio</title> 
-    
-    <link rel="icon" type="image/png" href="logo1.png">
+    <title>Cobayas Studio - Ecuador</title>
     <style>
-        /* --- 1. CONFIGURACIÓN BÁSICA --- */
-        @font-face {
-            font-family: 'Cobayas';
-            src: url('CobayasFont-Regular.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
+        /* --- CONFIGURACIÓN DE COLORES Y FUENTES --- */
+        :root {
+            --fondo: #222222;
+            --texto: #F0EAD6;
         }
 
-        :root {
-            --color-fondo: #252427; 
-            --color-texto: #F2E8DC;
+        html {
+            scroll-behavior: smooth; /* ¡ESTO HACE LA MAGIA DEL SCROLL SUAVE! */
         }
 
         body {
-            background-color: var(--color-fondo);
-            color: var(--color-texto);
-            font-family: 'Helvetica', 'Arial', sans-serif;
+            background-color: var(--fondo);
+            color: var(--texto);
+            font-family: 'Courier New', Courier, monospace;
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            overflow: hidden; /* Evita scrollbars durante animaciones */
-            perspective: 1000px; /* Necesario para el efecto 3D */
+            line-height: 1.6;
         }
 
-        /* --- 2. CONTENEDOR PRINCIPAL (Para mover todo junto) --- */
-        .contenedor {
+        /* --- BARRA DE NAVEGACIÓN FIJA (SIEMPRE ARRIBA) --- */
+        nav {
+            background-color: var(--fondo);
+            border-bottom: 2px solid var(--texto);
+            padding: 15px 0;
+            position: fixed; /* Se queda pegada arriba */
+            top: 0;
+            width: 100%;
+            z-index: 1000;
             text-align: center;
-            /* Iniciamos invisible para la animación de entrada */
-            opacity: 0; 
-            animation: entradaSuave 1.5s ease-out forwards;
-            transition: transform 0.1s ease-out; /* Suavidad para el movimiento del mouse */
         }
 
-        /* --- 3. LOGO COBAYAS --- */
-        h1.logo-cobayas {
-            font-family: 'Cobayas', sans-serif;
-            font-size: 10vw; /* El tamaño se adapta a la pantalla */
-            margin: 0;
-            line-height: 0.8;
-            text-transform: uppercase;
-            cursor: default;
-            transition: letter-spacing 0.5s ease, text-shadow 0.3s ease;
-            
-            /* Sombra sólida para dar efecto retro/bloque */
-            text-shadow: 4px 4px 0px rgba(0,0,0,0.3);
-        }
-
-        /* Efecto al pasar el mouse sobre el logo */
-        h1.logo-cobayas:hover {
-            letter-spacing: 15px; /* Se separan las letras */
-        }
-
-        /* --- 4. SUBTÍTULO --- */
-        p.subtitulo {
-            font-size: 1.2rem;
-            margin-top: 20px;
-            letter-spacing: 2px;
-            opacity: 0; /* Invisible al inicio */
-            animation: entradaArriba 1s ease-out 0.5s forwards; /* Retraso de 0.5s */
-        }
-
-        /* --- 5. BOTÓN INTERACTIVO --- */
-        .boton-container {
-            margin-top: 50px;
-            opacity: 0;
-            animation: entradaArriba 1s ease-out 1s forwards; /* Retraso de 1s */
-        }
-
-        .boton {
-            padding: 15px 50px;
-            font-family: 'Cobayas', sans-serif;
-            font-size: 1.5rem;
-            background-color: transparent;
-            color: var(--color-texto);
-            border: 2px solid var(--color-texto);
-            cursor: pointer;
+        nav a {
+            color: var(--texto);
             text-decoration: none;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s ease;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin: 0 15px;
+            text-transform: uppercase;
             display: inline-block;
         }
 
-        /* Animación de llenado al pasar el mouse */
-        .boton:hover {
-            background-color: var(--color-texto);
-            color: var(--color-fondo);
-            transform: scale(1.05);
-            box-shadow: 0px 0px 15px rgba(242, 232, 220, 0.3);
+        nav a:hover {
+            border-bottom: 2px solid var(--texto);
         }
 
-        /* --- 6. ANIMACIONES (KEYFRAMES) --- */
-        @keyframes entradaSuave {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
+        /* --- SECCIONES (BLOQUES GIGANTES) --- */
+        section {
+            padding: 80px 20px; /* Espacio arriba y abajo */
+            min-height: 80vh;   /* Cada sección ocupa casi toda la pantalla */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid rgba(240, 234, 214, 0.1);
         }
 
-        @keyframes entradaArriba {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 0.8; transform: translateY(0); }
+        /* --- ESTILOS DE ELEMENTOS --- */
+        .logo-principal {
+            width: 300px;
+            max-width: 80%;
+            margin-top: 50px;
         }
 
+        h1 { font-size: 2.5em; margin-bottom: 10px; text-transform: uppercase; }
+        h2 { 
+            font-size: 2em; 
+            border-bottom: 3px solid var(--texto); 
+            padding-bottom: 10px; 
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+        
+        p { max-width: 700px; font-size: 1.1em; text-align: center; margin-bottom: 20px; }
+
+        /* TARJETAS (CAJAS DE CONTENIDO) */
+        .grid-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .card {
+            border: 2px solid var(--texto);
+            padding: 20px;
+            width: 300px;
+            background-color: rgba(255,255,255,0.05);
+            transition: transform 0.3s;
+        }
+        .card:hover { transform: translateY(-5px); background-color: rgba(240, 234, 214, 0.1); }
+        
+        .card-title { font-size: 1.3em; font-weight: bold; margin-bottom: 10px; color: var(--texto); }
+
+        /* BOTONES */
+        .btn {
+            display: inline-block;
+            background-color: var(--texto);
+            color: var(--fondo);
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            border: 2px solid var(--texto);
+        }
+        .btn:hover {
+            background-color: var(--fondo);
+            color: var(--texto);
+        }
+        .btn-outline { background: transparent; color: var(--texto); }
+        .btn-outline:hover { background: var(--texto); color: var(--fondo); }
+
+        /* PIE DE PÁGINA */
+        footer {
+            padding: 40px;
+            text-align: center;
+            font-size: 0.9em;
+            opacity: 0.7;
+        }
     </style>
 </head>
 <body>
 
-    <div class="contenedor" id="escenario">
-        <h1 class="logo-cobayas">COBAYAS</h1>
-        <p class="subtitulo">ESTUDIO CREATIVO</p>
-        
-        <div class="boton-container">
-            <a href="#" class="boton">ENTRAR</a>
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#juegos">Juegos</a>
+        <a href="#cursos">Cursos</a>
+        <a href="#merch">Merch</a>
+        <a href="#nosotros">Nosotros</a>
+    </nav>
+
+    <section id="inicio">
+        <img src="logo.png" alt="Cobayas Studio Logo" class="logo-principal">
+        <p style="margin-top: 20px; font-style: italic;">
+            "Videojuegos con identidad y alma desde los Andes."
+        </p>
+        <a href="#juegos" class="btn">Ver Proyectos</a>
+    </section>
+
+    <section id="juegos">
+        <h2>Nuestros Juegos</h2>
+        <div class="grid-container">
+            
+            <div class="card">
+                <div class="card-title">🗿 LA CIUDAD PERDIDA</div>
+                <p style="font-size: 0.9em;">Aventura de plataformas y pixel art. Descubre los secretos de la cultura Manteña.</p>
+                <a href="#" class="btn">Descargar Demo</a>
+            </div>
+
+            <div class="card">
+                <div class="card-title">🕯️ LEYENDAS</div>
+                <p style="font-size: 0.9em;">Visual Novel interactiva. Tus decisiones cambian el mito.</p>
+                <a href="#" class="btn btn-outline">Jugar Gratis</a>
+            </div>
+
         </div>
-    </div>
+    </section>
 
-    <script>
-        // 1. Efecto 3D del mouse (Parallax)
-        const escenario = document.getElementById('escenario');
-        document.addEventListener('mousemove', (e) => {
-            const x = (window.innerWidth / 2 - e.pageX) / 25;
-            const y = (window.innerHeight / 2 - e.pageY) / 25;
-            escenario.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
-        });
-
-        // 2. Lógica del botón ENTRAR con transición
-        const boton = document.querySelector('.boton');
+    <section id="cursos">
+        <h2>Academia Cobayas</h2>
+        <p>Aprende a crear videojuegos sin saber programar código complejo.</p>
         
-        boton.addEventListener('click', function(e) {
-            e.preventDefault(); // Evita que salte de golpe
+        <div class="card" style="width: 80%; max-width: 600px;">
+            <div class="card-title">🎓 DOMINA GDEVELOP (2026)</div>
+            <p>Curso completo: Desde instalar el motor hasta publicar tu juego en Itch.io.</p>
+            <p><strong>Nivel:</strong> Principiante | <strong>Precio:</strong> $9.99</p>
+            <a href="#" class="btn">Ver Temario e Inscribirse</a>
+        </div>
+    </section>
 
-            // Hacemos que toda la página se desvanezca
-            document.body.style.transition = "opacity 1s ease";
-            document.body.style.opacity = "0";
+    <section id="merch">
+        <h2>Tienda Oficial</h2>
+        <p>Apoya el desarrollo independiente vistiendo nuestra piel.</p>
+        
+        <div class="grid-container">
+            <div class="card">
+                <div class="card-title">👕 CAMISETAS</div>
+                <p>Diseños exclusivos de pixel art.</p>
+                <a href="https://wa.me/593XXXXXXXXX" class="btn">Pedir por WhatsApp</a>
+            </div>
+            <div class="card">
+                <div class="card-title">☕ TAZAS & STICKERS</div>
+                <p>Lleva a Cobayas en tu escritorio.</p>
+                <a href="https://wa.me/593XXXXXXXXX" class="btn">Ver Catálogo</a>
+            </div>
+        </div>
+    </section>
 
-            // Esperamos 1 segundo y cambiamos al archivo 'Home.html'
-            setTimeout(() => {
-                // AQUÍ ESTÁ LA CORRECCIÓN CLAVE:
-                window.location.href = 'Home.html'; 
-            }, 1000);
-        });
-    </script>
+    <section id="nosotros">
+        <h2>Sobre Cobayas</h2>
+        <p>
+            Somos un estudio independiente fundado en Riobamba. 
+            Nuestro objetivo es demostrar que en Ecuador se puede vivir del arte digital.
+            Mezclamos historia, cultura y mecánicas modernas.
+        </p>
+        <br>
+        <p>📧 contacto@cobayas.studio</p>
+    </section>
+
+    <footer>
+        <p>© 2026 Cobayas Studio. Todos los derechos reservados.</p>
+        <p>Hecho con código, café y cariño.</p>
+    </footer>
 
 </body>
 </html>
