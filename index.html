@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cobayas Studio</title>
     <style>
-        /* 1. CARGAMOS TU FUENTE */
+        /* 1. CARGAMOS TU FUENTE (Con el nombre exacto de tu GitHub) */
         @font-face {
             font-family: 'MiFuenteCobayas';
-            src: url('CobayasFont.ttf'); /* Asegúrate de que el archivo .ttf esté en GitHub */
+            src: url('CobayasFont-Regular.ttf'); 
         }
 
         body {
@@ -18,20 +18,20 @@
             display: flex;
             justify-content: center; /* Centrado horizontal */
             align-items: center;     /* Centrado vertical */
-            overflow: hidden;        /* Que no haya barras de scroll */
+            overflow: hidden;        /* Sin barras de scroll */
         }
 
         /* 2. EL BOTÓN MÁGICO */
         .boton-intro {
-            font-family: 'MiFuenteCobayas', sans-serif; /* Tu fuente */
-            font-size: 8em; /* ¡GIGANTE! Ajusta si es demasiado grande */
+            font-family: 'MiFuenteCobayas', sans-serif; /* Tu fuente personalizada */
+            font-size: 10vw; /* Tamaño adaptable gigante */
             color: #F0EAD6; /* Color Hueso */
             text-decoration: none;
             text-transform: uppercase;
             
             /* Animación de brillo (Neon) */
             animation: latido 2s infinite alternate;
-            transition: transform 0.3s;
+            transition: transform 0.3s ease;
         }
 
         /* 3. EFECTO AL PASAR EL MOUSE */
@@ -40,28 +40,23 @@
             cursor: pointer;
         }
 
-        /* 4. ANIMACIÓN DEL BRILLO (Keyframes) */
+        /* 4. ANIMACIÓN DEL BRILLO */
         @keyframes latido {
             from {
                 text-shadow: 0 0 10px rgba(240, 234, 214, 0.2),
-                             0 0 20px rgba(240, 234, 214, 0.2);
+                             0 0 20px rgba(240, 234, 214, 0.1);
             }
             to {
-                text-shadow: 0 0 20px rgba(240, 234, 214, 0.8),
-                             0 0 40px rgba(240, 234, 214, 0.6),
-                             0 0 60px rgba(240, 234, 214, 0.4);
+                text-shadow: 0 0 30px rgba(240, 234, 214, 0.8),
+                             0 0 50px rgba(240, 234, 214, 0.5),
+                             0 0 70px rgba(240, 234, 214, 0.2);
             }
-        }
-
-        /* Ajuste para celulares */
-        @media (max-width: 768px) {
-            .boton-intro { font-size: 4em; }
         }
     </style>
 </head>
 <body>
 
-    <a href="home.html" class="boton-intro">
+    <a href="Home.html" class="boton-intro">
         COBAYAS
     </a>
 
