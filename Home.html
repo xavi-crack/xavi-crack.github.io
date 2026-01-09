@@ -3,31 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cobayas Studio - Ecuador</title>
+    <title>Cobayas Studio - Home</title>
     <style>
-        /* --- 1. PALETA DE COLORES EXACTA (TU IDENTIDAD) --- */
-        :root {
-            --fondo: #000000;  /* Carbón */
-            --texto: #F0EAD6;  /* Hueso / Crema */
+        /* --- 1. CARGAMOS TU FUENTE PERSONALIZADA --- */
+        @font-face {
+            font-family: 'MiFuenteCobayas';
+            src: url('CobayasFont-Regular.ttf'); /* Asegúrate que este sea el nombre en GitHub */
         }
 
-        /* --- 2. TIPOGRAFÍA Y SCROLL --- */
+        /* --- 2. VARIABLES DE COLOR --- */
+        :root {
+            --fondo: #222222;  /* Carbón */
+            --texto: #F0EAD6;  /* Hueso */
+        }
+
         html { scroll-behavior: smooth; }
 
         body {
             background-color: var(--fondo);
             color: var(--texto);
-            /* La fuente que acordamos: estilo código/retro */
+            /* FUENTE PARA EL TEXTO NORMAL (Párrafos) */
             font-family: 'Courier New', Courier, monospace; 
             margin: 0;
             line-height: 1.6;
+            font-size: 16px;
         }
 
-        /* --- 3. MENÚ DE NAVEGACIÓN (ESTILO SÓLIDO) --- */
+        /* --- 3. ESTILOS DE TEXTO --- */
+        
+        /* Títulos y Botones usan TU FUENTE */
+        h1, h2, .btn, nav a {
+            font-family: 'MiFuenteCobayas', sans-serif;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-size: 3em; /* Más grandes para que luzca la fuente */
+            border-left: 8px solid var(--texto);
+            padding-left: 20px;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
+
+        p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        /* --- 4. NAVEGACIÓN --- */
         nav {
-            background-color: var(--fondo); /* Fondo sólido, sin transparencias raras */
-            border-bottom: 3px solid var(--texto); /* Borde grueso */
-            padding: 20px 0;
+            background-color: var(--fondo);
+            border-bottom: 3px solid var(--texto);
+            padding: 15px 0;
             position: fixed;
             top: 0;
             width: 100%;
@@ -38,21 +65,16 @@
         nav a {
             color: var(--texto);
             text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2em; /* Un poco más grande */
+            font-size: 1.5em; /* Un poco más grande para que se lea tu fuente */
             margin: 0 15px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: all 0.2s;
         }
-        
         nav a:hover {
+            color: var(--fondo);
             background-color: var(--texto);
-            color: var(--fondo); /* Efecto invertido al pasar el mouse */
-            padding: 5px 10px;
+            padding: 2px 10px;
         }
 
-        /* --- 4. PORTADA (HERO) --- */
+        /* --- 5. PORTADA (HERO) --- */
         header {
             height: 100vh;
             display: flex;
@@ -62,117 +84,49 @@
             text-align: center;
             padding: 20px;
             border-bottom: 3px solid var(--texto);
+            padding-top: 80px; /* Para que el menú no tape el contenido */
         }
 
         .logo-hero {
             width: 500px;
             max-width: 90%;
             margin-bottom: 30px;
-            /* Filtro opcional: asegura que si el logo tiene otro tono, se ajuste */
         }
 
         .hero-text { 
-            font-size: 1.4em; 
+            font-size: 1.2em; 
             max-width: 700px; 
             margin-bottom: 40px; 
-            font-style: italic;
+            font-style: italic; 
         }
 
-        /* --- 5. ESTRUCTURA "GAME JAM" (ZIG-ZAG) --- */
-        section {
-            padding: 80px 10%;
-            border-bottom: 3px solid var(--texto); /* Separadores gruesos */
-        }
+        /* --- 6. SECCIONES --- */
+        section { padding: 80px 10%; border-bottom: 3px solid var(--texto); }
 
-        h2 {
-            font-size: 2.5em;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 30px;
-            border-left: 8px solid var(--texto); /* Marca lateral estilo revista */
-            padding-left: 20px;
-        }
-
-        .container-split {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-            flex-wrap: wrap;
-        }
-        
-        .reverse { flex-direction: row-reverse; } /* Para alternar izquierda/derecha */
-
-        .text-box { flex: 1; min-width: 300px; }
-        .image-box { flex: 1; min-width: 300px; }
-
-        /* ESTILO DE IMÁGENES (Retro Hardcore) */
-        .image-box img {
-            width: 100%;
-            border: 4px solid var(--texto); /* Marco de cuadro */
-            /* Sombra dura sólida (sin difuminar) */
-            box-shadow: 15px 15px 0px rgba(240, 234, 214, 0.2); 
-            transition: transform 0.2s;
-        }
-        .image-box img:hover {
-            transform: translate(-5px, -5px);
-            box-shadow: 20px 20px 0px rgba(240, 234, 214, 0.4);
-        }
-
-        /* --- 6. BOTONES (ESTILO ANTERIOR) --- */
+        /* --- 7. BOTONES (CON TU FUENTE) --- */
         .btn {
             display: inline-block;
             background-color: var(--texto);
             color: var(--fondo);
             padding: 15px 30px;
-            font-weight: bold;
+            font-size: 1.5em; /* Tamaño grande para lucir la fuente */
             text-decoration: none;
-            text-transform: uppercase;
             margin-top: 20px;
             border: 3px solid var(--texto);
-            box-shadow: 5px 5px 0px rgba(0,0,0,0.5); /* Sombra dura negra */
+            box-shadow: 6px 6px 0px rgba(0,0,0,0.5);
             transition: all 0.2s;
         }
         .btn:hover {
             background-color: var(--fondo);
             color: var(--texto);
-            box-shadow: 5px 5px 0px var(--texto); /* La sombra cambia de color */
+            box-shadow: 6px 6px 0px var(--texto);
             transform: translate(2px, 2px);
+            cursor: pointer;
         }
+        
+        /* FOOTER */
+        footer { text-align: center; padding: 60px; opacity: 0.6; }
 
-        /* --- 7. GRID DE CURSOS/MERCH --- */
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
-        }
-        .info-item {
-            border: 3px solid var(--texto);
-            padding: 30px;
-            background-color: var(--fondo);
-            box-shadow: 10px 10px 0px rgba(240, 234, 214, 0.1);
-        }
-        .big-number { 
-            font-size: 2.5em; 
-            font-weight: bold; 
-            display: block; 
-            margin-bottom: 10px;
-            border-bottom: 2px dashed var(--texto);
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            text-align: center;
-            padding: 60px;
-            opacity: 0.6;
-            font-size: 0.9em;
-        }
-
-        /* Móvil */
-        @media (max-width: 768px) {
-            .container-split { flex-direction: column !important; }
-            h2 { font-size: 2em; border-left: 5px solid var(--texto); }
-        }
     </style>
 </head>
 <body>
@@ -185,70 +139,29 @@
     </nav>
 
     <header id="inicio">
-        <img src="logo.png" alt="Cobayas Studio" class="logo-hero">
-        <p class="hero-text">
-            "Donde el pasado andino se encuentra con el pixel."
-        </p>
-        <a href="#juegos" class="btn">Ver Proyectos</a>
+        <img src="logo1.png" alt="Cobayas Studio" class="logo-hero">
+        
+        <p class="hero-text">"Donde el pasado andino se encuentra con el pixel."</p>
+        
+        <a href="#juegos" class="btn">Explorar Proyectos</a>
     </header>
 
     <section id="juegos">
-        <div class="container-split">
-            <div class="text-box">
-                <h2>La Ciudad Perdida</h2>
-                <p>Nuestra carta de amor a los plataformas clásicos y a la arqueología ecuatoriana. Salta, excava y descubre.</p>
-                <br>
-                <ul style="list-style-type: square; padding-left: 20px;">
-                    <li>Pixel Art artesanal</li>
-                    <li>Historia basada en hechos reales</li>
-                </ul>
-                <a href="#" class="btn">Ver Demo</a>
-            </div>
-            <div class="image-box">
-                <img src="juego1.jpg" alt="Gameplay">
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="container-split reverse">
-            <div class="text-box">
-                <h2>Leyendas VN</h2>
-                <p>Novela Visual interactiva. El páramo esconde secretos que solo tú puedes desvelar.</p>
-                <a href="#" class="btn">Jugar Gratis</a>
-            </div>
-            <div class="image-box">
-                <img src="juego2.jpg" alt="Leyendas Arte">
-            </div>
-        </div>
+        <h2>Nuestros Juegos</h2>
+        <p>Pronto subiremos las capturas de pantalla de La Ciudad Perdida y Leyendas.</p>
+        <a href="#" class="btn">Ver Demo</a>
     </section>
 
     <section id="cursos">
-        <h2>Academia & Tienda</h2>
-        <div class="info-grid">
-            <div class="info-item">
-                <span class="big-number">CURSOS</span>
-                <p>Aprende GDevelop con nosotros. De cero a tu primer juego.</p>
-                <a href="#" class="btn" style="font-size: 0.8em;">Ver Temario</a>
-            </div>
-            <div class="info-item">
-                <span class="big-number">MERCH</span>
-                <p>Camisetas y arte físico. Apoya al estudio local.</p>
-                <a href="https://wa.me/593XXXXXXXXX" class="btn" style="font-size: 0.8em;">WhatsApp</a>
-            </div>
-        </div>
+        <h2>Academia</h2>
+        <p>Aprende a crear videojuegos usando GDevelop sin programar código complejo.</p>
+        <a href="#" class="btn">Ver Temario</a>
     </section>
 
-    <section id="merch" style="text-align: center; border-bottom: none;">
-        <h2>El Equipo</h2>
-        <p style="max-width: 600px; margin: 0 auto;">
-            Somos Cobayas. Hacemos juegos desde Riobamba porque creemos que nuestras historias merecen ser jugadas.
-        </p>
-        <br>
-        <div class="image-box" style="max-width: 500px; margin: 20px auto;">
-            <img src="promo.jpg" alt="Equipo">
-        </div>
-        <p>📧 contacto@cobayas.studio</p>
+    <section id="merch">
+        <h2>Tienda Oficial</h2>
+        <p>Camisetas, stickers y arte digital de Cobayas.</p>
+        <a href="https://wa.me/593XXXXXXXXX" class="btn">WhatsApp</a>
     </section>
 
     <footer>
