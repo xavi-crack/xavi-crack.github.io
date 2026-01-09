@@ -12,9 +12,9 @@
         }
 
         body {
-            background-color: #222222; /* Carbón */
+            background-color: #000000; /* Carbón */
             margin: 0;
-            height: 100vh;
+            height: 100 vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -24,30 +24,30 @@
         /* 2. EL BOTÓN */
         .boton-intro {
             font-family: 'MiFuenteCobayas', sans-serif; 
-            font-size: 8em; 
+            font-size: 8 em; 
             color: #F0EAD6; /* Hueso */
             text-decoration: none;
             text-transform: uppercase;
             
             /* Estado inicial: letras normales */
-            letter-spacing: 0px; 
+            letter-spacing: 0 px; 
             
             /* La transición ahora anima el espaciado */
-            transition: letter-spacing 0.8s ease; 
+            transition: letter-spacing 0.8 s ease; 
         }
 
         /* 3. EFECTO AL PASAR EL MOUSE (SEPARACIÓN) */
         .boton-intro:hover {
             /* Aquí ocurre la magia: se separan 20px */
-            letter-spacing: 20px; 
+            letter-spacing: 20 px; 
             cursor: pointer;
         }
 
         /* Celular */
-        @media (max-width: 768px) { 
-            .boton-intro { font-size: 15vw; } 
+        @media (max-width: 768 px) { 
+            .boton-intro { font-size: 15 vw; } 
             /* En celular la separación es menor para que no se rompa */
-            .boton-intro:hover { letter-spacing: 5px; }
+            .boton-intro:hover { letter-spacing: 5 px; }
         }
     </style>
 </head>
