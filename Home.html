@@ -13,20 +13,20 @@
 
         /* --- 2. VARIABLES DE COLOR --- */
         :root {
-            --fondo: #222222;  /* Carbón */
+            --fondo: #000000;  /* Carbón */
             --texto: #F0EAD6;  /* Hueso */
         }
 
         html { scroll-behavior: smooth; }
 
         body {
-            background-color: var(--fondo);
-            color: var(--texto);
+            background-color: var (--fondo);
+            color: var (--texto);
             /* FUENTE PARA EL TEXTO NORMAL (Párrafos) */
             font-family: 'Courier New', Courier, monospace; 
             margin: 0;
             line-height: 1.6;
-            font-size: 16px;
+            font-size: 16 px;
         }
 
         /* --- 3. ESTILOS DE TEXTO --- */
@@ -38,94 +38,94 @@
         }
 
         h2 {
-            font-size: 3em; /* Más grandes para que luzca la fuente */
-            border-left: 8px solid var(--texto);
-            padding-left: 20px;
-            margin-bottom: 30px;
-            letter-spacing: 2px;
+            font-size: 3 em; /* Más grandes para que luzca la fuente */
+            border-left: 8 px solid var (--texto);
+            padding-left: 20 px;
+            margin-bottom: 30 px;
+            letter-spacing: 2 px;
         }
 
         p {
-            font-size: 1.1em;
-            margin-bottom: 20px;
+            font-size: 1.1 em;
+            margin-bottom: 20 px;
         }
 
         /* --- 4. NAVEGACIÓN --- */
         nav {
-            background-color: var(--fondo);
-            border-bottom: 3px solid var(--texto);
-            padding: 15px 0;
+            background-color: var (--fondo);
+            border-bottom: 3 px solid var (--texto);
+            padding: 15 px 0;
             position: fixed;
             top: 0;
-            width: 100%;
+            width: 100 %;
             z-index: 1000;
             text-align: center;
         }
 
         nav a {
-            color: var(--texto);
+            color: var (--texto);
             text-decoration: none;
-            font-size: 1.5em; /* Un poco más grande para que se lea tu fuente */
-            margin: 0 15px;
+            font-size: 1.5 em; /* Un poco más grande para que se lea tu fuente */
+            margin: 0 15 px;
         }
         nav a:hover {
-            color: var(--fondo);
-            background-color: var(--texto);
-            padding: 2px 10px;
+            color: var (--fondo);
+            background-color: var (--texto);
+            padding: 2 px 10 px;
         }
 
         /* --- 5. PORTADA (HERO) --- */
         header {
-            height: 100vh;
+            height: 100 vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 20px;
-            border-bottom: 3px solid var(--texto);
-            padding-top: 80px; /* Para que el menú no tape el contenido */
+            padding: 20 px;
+            border-bottom: 3 px solid var (--texto);
+            padding-top: 80 px; /* Para que el menú no tape el contenido */
         }
 
         .logo-hero {
-            width: 500px;
-            max-width: 90%;
-            margin-bottom: 30px;
+            width: 500 px;
+            max-width: 90 %;
+            margin-bottom: 30 px;
         }
 
         .hero-text { 
-            font-size: 1.2em; 
-            max-width: 700px; 
-            margin-bottom: 40px; 
+            font-size: 1.2 em; 
+            max-width: 700 px; 
+            margin-bottom: 40 px; 
             font-style: italic; 
         }
 
         /* --- 6. SECCIONES --- */
-        section { padding: 80px 10%; border-bottom: 3px solid var(--texto); }
+        section { padding: 80 px 10 %; border-bottom: 3 px solid var (--texto); }
 
         /* --- 7. BOTONES (CON TU FUENTE) --- */
         .btn {
             display: inline-block;
-            background-color: var(--texto);
-            color: var(--fondo);
-            padding: 15px 30px;
-            font-size: 1.5em; /* Tamaño grande para lucir la fuente */
+            background-color: var (--texto);
+            color: var (--fondo);
+            padding: 15 px 30 px;
+            font-size: 1.5 em; /* Tamaño grande para lucir la fuente */
             text-decoration: none;
-            margin-top: 20px;
-            border: 3px solid var(--texto);
-            box-shadow: 6px 6px 0px rgba(0,0,0,0.5);
-            transition: all 0.2s;
+            margin-top: 20 px;
+            border: 3 px solid var (--texto);
+            box-shadow: 6 px 6 px 0 px rgba (0,0,0,0.5);
+            transition: all 0.2 s;
         }
         .btn:hover {
-            background-color: var(--fondo);
-            color: var(--texto);
-            box-shadow: 6px 6px 0px var(--texto);
-            transform: translate(2px, 2px);
+            background-color: var (--fondo);
+            color: var (--texto);
+            box-shadow: 6 px 6 px 0 px var (--texto);
+            transform: translate (2 px, 2 px);
             cursor: pointer;
         }
         
         /* FOOTER */
-        footer { text-align: center; padding: 60px; opacity: 0.6; }
+        footer { text-align: center; padding: 60 px; opacity: 0.6; }
 
     </style>
 </head>
