@@ -3,40 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cobayas Studio</title>
+    <title>Cobayas Studio - Intro</title>
     <style>
-        /* 1. CARGAMOS TU FUENTE (Con el nombre exacto de tu GitHub) */
+        /* 1. CARGAMOS TU FUENTE */
         @font-face {
             font-family: 'MiFuenteCobayas';
             src: url('CobayasFont-Regular.ttf'); 
         }
 
         body {
-            background-color: #000000; /* Color Carbón */
+            background-color: #222222; /* Carbón */
             margin: 0;
-            height: 100vh; /* Pantalla completa */
+            height: 100vh;
             display: flex;
-            justify-content: center; /* Centrado horizontal */
-            align-items: center;     /* Centrado vertical */
-            overflow: hidden;        /* Sin barras de scroll */
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
         }
 
-        /* 2. EL BOTÓN MÁGICO */
+        /* 2. EL BOTÓN (SÓLIDO Y ESTÁTICO) */
         .boton-intro {
-            font-family: 'MiFuenteCobayas', sans-serif; /* Tu fuente personalizada */
-            font-size: 10vw; /* Tamaño adaptable gigante */
-            color: #F0EAD6; /* Color Hueso */
+            font-family: 'MiFuenteCobayas', sans-serif; 
+            font-size: 8em; 
+            color: #F0EAD6; /* Hueso */
             text-decoration: none;
             text-transform: uppercase;
+            
+            /* Ya no hay animación aquí */
+            transition: transform 0.3s ease; /* Solo suaviza el crecimiento al pasar el mouse */
         }
 
-        /* 3. EFECTO AL PASAR EL MOUSE */
+        /* 3. EFECTO AL PASAR EL MOUSE (Solo crece, no brilla) */
         .boton-intro:hover {
-            transform: scale(1.1); /* Crece un poco */
+            transform: scale(1.1); 
             cursor: pointer;
         }
 
-       
+        /* Celular */
+        @media (max-width: 768px) { 
+            .boton-intro { font-size: 15vw; } /* Se ajusta al ancho del celu */
         }
     </style>
 </head>
