@@ -3,58 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cobayas Studio - Intro</title>
+    <title>Bienvenido al Mundo Cobaya</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    
     <style>
-        /* 1. CARGAMOS TU FUENTE */
-        @font-face {
-            font-family: 'MiFuenteCobayas';
-            src: url('CobayasFont-Regular.ttf'); 
-        }
-
+        /* Estilos generales para centrar todo */
         body {
-            background-color: #000000; /* Carbón */
             margin: 0;
-            height: 100 vh;
+            height: 100vh; /* Ocupa toda la altura de la pantalla */
             display: flex;
-            justify-content: center;
-            align-items: center;
+            justify-content: center; /* Centrado horizontal */
+            align-items: center; /* Centrado vertical */
+            /* Un fondo degradado suave color crema/naranja */
+            background: linear-gradient(135deg, #fff1eb 0%, #ace0f9 100%);
+            font-family: 'Fredoka One', cursive;
             overflow: hidden;
         }
 
-        /* 2. EL BOTÓN */
-        .boton-intro {
-            font-family: 'MiFuenteCobayas', sans-serif; 
-            font-size: 8 em; 
-            color: #F0EAD6; /* Hueso */
-            text-decoration: none;
-            text-transform: uppercase;
-            
-            /* Estado inicial: letras normales */
-            letter-spacing: 0 px; 
-            
-            /* La transición ahora anima el espaciado */
-            transition: letter-spacing 0.8 s ease; 
+        /* Estilos del Botón Gigante */
+        .boton-cobaya {
+            display: inline-block;
+            text-decoration: none; /* Quitar subrayado del enlace */
+            font-size: 4rem; /* Tamaño de letra gigante */
+            color: #fff;
+            background-color: #e67e22; /* Color naranja cobaya */
+            padding: 50px 100px;
+            border-radius: 60px; /* Bordes muy redondos */
+            border: 8px solid #d35400; /* Borde más oscuro */
+            box-shadow: 0 15px 0 #a04000, 0 25px 20px rgba(0,0,0,0.2); /* Efecto 3D */
+            transition: all 0.2s ease; /* Suavizar animación */
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-align: center;
         }
 
-        /* 3. EFECTO AL PASAR EL MOUSE (SEPARACIÓN) */
-        .boton-intro:hover {
-            /* Aquí ocurre la magia: se separan 20px */
-            letter-spacing: 20 px; 
+        /* Icono dentro del botón */
+        .icono {
+            font-size: 5rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* EFECTOS INTERACTIVOS (HOVER Y CLICK) */
+        
+        /* Cuando pasas el mouse por encima */
+        .boton-cobaya:hover {
+            transform: translateY(-5px); /* El botón sube un poco */
+            background-color: #f39c12; /* Se pone más brillante */
+            box-shadow: 0 20px 0 #a04000, 0 35px 30px rgba(0,0,0,0.3);
             cursor: pointer;
         }
 
-        /* Celular */
-        @media (max-width: 768 px) { 
-            .boton-intro { font-size: 15 vw; } 
-            /* En celular la separación es menor para que no se rompa */
-            .boton-intro:hover { letter-spacing: 5 px; }
+        /* Cuando haces click (efecto de presionar) */
+        .boton-cobaya:active {
+            transform: translateY(15px); /* El botón baja */
+            box-shadow: 0 0 0 #a04000, 0 0 0 rgba(0,0,0,0); /* La sombra desaparece */
+            border-top: 8px solid #a04000;
+        }
+
+        /* Ajuste para celulares */
+        @media (max-width: 600px) {
+            .boton-cobaya {
+                font-size: 2rem;
+                padding: 30px 40px;
+            }
+            .icono {
+                font-size: 3rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <a href="Home.html" class="boton-intro">
-        COBAYAS
+    <a href="inicio.html" class="boton-cobaya">
+        <span class="icono">🐹</span>
+        ENTRAR
     </a>
 
 </body>
