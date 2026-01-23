@@ -31,18 +31,18 @@
             padding: 0;
             background-color: var(--bg-color);
             color: var(--text-color);
-            font-family: 'Montserrat', sans-serif; /* Texto legible */
+            font-family: 'Montserrat', sans-serif;
             padding-bottom: 60px;
         }
 
         a { text-decoration: none; color: white; transition: 0.3s; }
 
-        /* --- HEADER (IGUAL QUE EN HOME) --- */
+        /* --- HEADER (AHORA IDÉNTICO A HOME) --- */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 40px;
+            padding: 15px 40px; /* Misma altura que Home */
             background-color: rgba(0, 0, 0, 0.95);
             border-bottom: 1px solid #333;
             position: sticky;
@@ -54,6 +54,7 @@
             font-family: 'CobayasFont';
             font-size: 32px;
             letter-spacing: 2px;
+            color: white;
         }
 
         nav ul {
@@ -69,11 +70,21 @@
             font-family: 'CobayasFont', sans-serif;
             font-size: 24px;
             text-transform: uppercase;
+            /* AQUÍ ESTABA EL ERROR: Faltaba este espaciado */
+            letter-spacing: 1px; 
+            padding-bottom: 5px; /* Espacio para el subrayado */
+            border-bottom: 1px solid transparent; /* Borde invisible por defecto */
         }
 
-        nav a:hover, nav a.active {
-            color: var(--accent-color);
-            text-shadow: 0 0 10px rgba(255,255,255,0.3);
+        /* Efecto Hover (Brillito suave igual que en Home) */
+        nav a:hover {
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+        }
+
+        /* Clase para la página activa (Subrayado fijo igual que en Home) */
+        nav a.active {
+            border-bottom: 1px solid white;
         }
 
         /* --- GALERÍA DE JUEGOS --- */
@@ -92,14 +103,12 @@
             padding-bottom: 20px;
         }
 
-        /* GRID: Esto organiza las tarjetas automáticamente */
         .games-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
         }
 
-        /* TARJETA INDIVIDUAL */
         .game-card {
             background-color: var(--card-bg);
             border: 1px solid #333;
@@ -111,7 +120,7 @@
         }
 
         .game-card:hover {
-            transform: translateY(-5px); /* Flota un poco al pasar el mouse */
+            transform: translateY(-5px);
             border-color: #555;
         }
 
@@ -145,7 +154,6 @@
             flex-grow: 1;
         }
 
-        /* BOTÓN DE ACCIÓN (Jugar/Ver más) */
         .play-btn {
             display: block;
             background-color: transparent;
@@ -166,7 +174,6 @@
             color: black;
         }
         
-        /* Ajustes para celular */
         @media (max-width: 768px) {
             header { flex-direction: column; gap: 15px; }
             nav ul { flex-wrap: wrap; justify-content: center; }
