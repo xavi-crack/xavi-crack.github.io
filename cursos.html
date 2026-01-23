@@ -18,13 +18,11 @@
             src: url('./CobayasFont-Regular.ttf') format('truetype');
         }
 
-        /* --- COLORES --- */
+        /* --- COLORES (SOLO BLANCO Y NEGRO) --- */
         :root {
             --bg-color: #000000;
             --card-bg: #111111;
             --text-color: #ffffff;
-            --accent-color: #cccccc;
-            --highlight: #ffee00; /* Un color amarillo para destacar cursos */
         }
 
         body {
@@ -74,7 +72,7 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             
-            /* LAS MEDIDAS SAGRADAS: */
+            /* MEDIDAS EXACTAS: */
             display: inline-block; 
             line-height: 1;       
             padding-bottom: 5px; 
@@ -113,7 +111,7 @@
             gap: 40px;
         }
 
-        /* TARJETA DE CURSO (Estilo similar pero vertical) */
+        /* TARJETA DE CURSO */
         .course-card {
             background-color: var(--card-bg);
             border: 1px solid #333;
@@ -127,16 +125,17 @@
 
         .course-card:hover {
             transform: translateY(-5px);
-            border-color: var(--highlight);
+            border-color: #555;
         }
 
-        /* Etiqueta de "Abierto" o "Cerrado" */
+        /* Etiqueta de estado (Ahora en blanco y negro) */
         .status-badge {
             position: absolute;
             top: 10px;
             right: 10px;
             background-color: rgba(0,0,0,0.8);
             border: 1px solid white;
+            color: white;
             padding: 5px 10px;
             font-size: 10px;
             text-transform: uppercase;
@@ -146,7 +145,7 @@
 
         .course-image {
             width: 100%;
-            height: 250px; /* Un poco más alta que en juegos */
+            height: 250px; 
             background-color: #222;
             object-fit: cover;
             border-bottom: 1px solid #333;
@@ -164,12 +163,12 @@
             font-size: 30px;
             margin: 0 0 10px 0;
             line-height: 1.1;
-            color: var(--highlight);
+            color: white; /* Todo blanco */
         }
 
         .course-details {
             font-size: 12px;
-            color: #888;
+            color: #ccc; /* Gris muy claro */
             margin-bottom: 15px;
             display: flex;
             gap: 15px;
@@ -183,10 +182,12 @@
             flex-grow: 1;
         }
 
+        /* Botón de acción (Estilo minimalista) */
         .action-btn {
             display: block;
-            background-color: white;
-            color: black;
+            background-color: transparent;
+            border: 1px solid white;
+            color: white;
             padding: 12px 0;
             font-family: 'Montserrat', sans-serif;
             font-weight: bold;
@@ -195,11 +196,12 @@
             font-size: 12px;
             letter-spacing: 2px;
             border-radius: 4px;
-            transition: background 0.3s;
+            transition: all 0.3s;
         }
 
         .action-btn:hover {
-            background-color: var(--highlight);
+            background-color: white;
+            color: black; /* Al pasar el mouse se invierte para leerse bien */
         }
         
         @media (max-width: 768px) {
@@ -228,8 +230,8 @@
         <div class="courses-grid">
             
             <article class="course-card">
-                <span class="status-badge" style="color: #00ff00;">Inscripciones Abiertas</span>
-                <img src="logo1.png" alt="Pixel Art Básico" class="course-image">
+                <span class="status-badge">Inscripciones Abiertas</span>
+                <img src="logo1.png" alt="Pixel Art" class="course-image">
                 <div class="course-info">
                     <h2 class="course-title">Pixel Art: Nivel 1</h2>
                     <div class="course-details">
@@ -245,7 +247,7 @@
             </article>
 
             <article class="course-card">
-                <span class="status-badge" style="color: #ff9900;">Lista de Espera</span>
+                <span class="status-badge">Lista de Espera</span>
                 <div class="course-image" style="background: #222; display:flex; align-items:center; justify-content:center; color:#555;">
                     IMG TALLER
                 </div>
