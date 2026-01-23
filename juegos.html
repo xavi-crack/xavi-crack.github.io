@@ -37,12 +37,12 @@
 
         a { text-decoration: none; color: white; transition: 0.3s; }
 
-        /* --- HEADER (AHORA IDÉNTICO A HOME) --- */
+        /* --- HEADER (IGUAL A HOME) --- */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 40px; /* Misma altura que Home */
+            padding: 15px 40px; 
             background-color: rgba(0, 0, 0, 0.95);
             border-bottom: 1px solid #333;
             position: sticky;
@@ -55,6 +55,7 @@
             font-size: 32px;
             letter-spacing: 2px;
             color: white;
+            line-height: 1; /* Agregado para estabilidad */
         }
 
         nav ul {
@@ -66,25 +67,31 @@
             align-items: center;
         }
 
+        /* --- AQUÍ ESTÁ LA CORRECCIÓN --- */
         nav a {
             font-family: 'CobayasFont', sans-serif;
             font-size: 24px;
             text-transform: uppercase;
-            /* AQUÍ ESTABA EL ERROR: Faltaba este espaciado */
-            letter-spacing: 1px; 
-            padding-bottom: 5px; /* Espacio para el subrayado */
-            border-bottom: 1px solid transparent; /* Borde invisible por defecto */
+            letter-spacing: 1px;
+            
+            /* ESTAS SON LAS LÍNEAS QUE FALTABAN: */
+            display: inline-block; 
+            line-height: 1;       
+            
+            padding-bottom: 5px; 
+            /* Cambié 1px a 2px para que sea idéntico a Home */
+            border-bottom: 2px solid transparent; 
         }
 
-        /* Efecto Hover (Brillito suave igual que en Home) */
         nav a:hover {
             color: #fff;
             text-shadow: 0 0 10px rgba(255,255,255,0.5);
         }
 
-        /* Clase para la página activa (Subrayado fijo igual que en Home) */
+        /* Clase para la página activa */
         nav a.active {
-            border-bottom: 1px solid white;
+            /* Cambié 1px a 2px */
+            border-bottom: 2px solid white;
         }
 
         /* --- GALERÍA DE JUEGOS --- */
