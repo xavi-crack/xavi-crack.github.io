@@ -3,170 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cobayas Studio - Home</title>
+    <title>Inicio - Cobayas Studio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+
     <style>
-        /* --- 1. CARGAMOS TU FUENTE PERSONALIZADA --- */
+        /* --- 1. CONFIGURACIÓN DE FUENTES --- */
         @font-face {
-            font-family: 'MiFuenteCobayas';
-            src: url('CobayasFont-Regular.ttf'); /* Asegúrate que este sea el nombre en GitHub */
+            font-family: 'CobayasFont';
+            src: url('./CobayasFont-Regular.ttf') format('truetype');
         }
 
-        /* --- 2. VARIABLES DE COLOR --- */
+        /* Variables de color para cambios rápidos */
         :root {
-            --fondo: #000000;  /* Carbón */
-            --texto: #F0EAD6;  /* Hueso */
+            --bg-color: #000000;
+            --text-color: #ffffff;
+            --accent-color: #cccccc; /* Un gris para detalles */
         }
 
-        html { scroll-behavior: smooth; }
-
+        /* --- 2. ESTILOS GENERALES --- */
         body {
-            background-color: var (--fondo);
-            color: var (--texto);
-            /* FUENTE PARA EL TEXTO NORMAL (Párrafos) */
-            font-family: 'Courier New', Courier, monospace; 
             margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Montserrat', sans-serif; /* Fuente para el cuerpo */
             line-height: 1.6;
-            font-size: 16 px;
         }
 
-        /* --- 3. ESTILOS DE TEXTO --- */
-        
-        /* Títulos y Botones usan TU FUENTE */
-        h1, h2, .btn, nav a {
-            font-family: 'MiFuenteCobayas', sans-serif;
-            text-transform: uppercase;
+        h1, h2, h3 {
+            font-family: 'CobayasFont', sans-serif; /* Títulos con tu fuente */
+            font-weight: normal;
         }
 
-        h2 {
-            font-size: 3 em; /* Más grandes para que luzca la fuente */
-            border-left: 8 px solid var (--texto);
-            padding-left: 20 px;
-            margin-bottom: 30 px;
-            letter-spacing: 2 px;
+        a {
+            text-decoration: none;
+            color: white;
+            transition: color 0.3s ease;
         }
 
-        p {
-            font-size: 1.1 em;
-            margin-bottom: 20 px;
+        a:hover {
+            color: var(--accent-color);
         }
 
-        /* --- 4. NAVEGACIÓN --- */
-        nav {
-            background-color: var (--fondo);
-            border-bottom: 3 px solid var (--texto);
-            padding: 15 px 0;
-            position: fixed;
+        /* --- 3. BARRA DE NAVEGACIÓN (HEADER) --- */
+        header {
+            display: flex;
+            justify-content: space-between; /* Separa Logo a izq y Menú a der */
+            align-items: center;
+            padding: 20px 40px;
+            position: sticky; /* Se queda pegado arriba al hacer scroll */
             top: 0;
-            width: 100 %;
+            background-color: rgba(0, 0, 0, 0.9); /* Un poco transparente */
             z-index: 1000;
-            text-align: center;
+            border-bottom: 1px solid #333;
+        }
+
+        .logo {
+            font-family: 'CobayasFont';
+            font-size: 32px;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px; /* Espacio entre botones */
+            margin: 0;
+            padding: 0;
         }
 
         nav a {
-            color: var (--texto);
-            text-decoration: none;
-            font-size: 1.5 em; /* Un poco más grande para que se lea tu fuente */
-            margin: 0 15 px;
-        }
-        nav a:hover {
-            color: var (--fondo);
-            background-color: var (--texto);
-            padding: 2 px 10 px;
+            font-size: 14px;
+            text-transform: uppercase; /* Letras en mayúscula para el menú */
+            font-weight: 700;
+            letter-spacing: 1px;
         }
 
-        /* --- 5. PORTADA (HERO) --- */
-        header {
-            height: 100 vh;
+        /* --- 4. SECCIÓN DE NOTICIAS (FEED) --- */
+        .container {
+            max-width: 900px; /* Ancho máximo para que sea legible */
+            margin: 0 auto; /* Centrado */
+            padding: 40px 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 60px;
+            margin-bottom: 60px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+        }
+
+        /* Estilo de cada Noticia */
+        .news-item {
+            display: flex; /* Pone imagen y texto lado a lado */
+            gap: 30px;
+            margin-bottom: 60px; /* Espacio entre noticias */
+            background-color: #111; /* Fondo sutil para la noticia */
+            border: 1px solid #222;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .news-image {
+            flex: 1; /* Ocupa 1 parte del espacio */
+            min-width: 250px;
+        }
+
+        .news-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            display: block;
+        }
+
+        .news-content {
+            flex: 2; /* Ocupa 2 partes del espacio (más ancho que la foto) */
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20 px;
-            border-bottom: 3 px solid var (--texto);
-            padding-top: 80 px; /* Para que el menú no tape el contenido */
         }
 
-        .logo-hero {
-            width: 500 px;
-            max-width: 90 %;
-            margin-bottom: 30 px;
+        .news-date {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 5px;
+            text-transform: uppercase;
         }
 
-        .hero-text { 
-            font-size: 1.2 em; 
-            max-width: 700 px; 
-            margin-bottom: 40 px; 
-            font-style: italic; 
+        .news-title {
+            font-size: 36px;
+            margin: 0 0 15px 0;
+            line-height: 1;
         }
 
-        /* --- 6. SECCIONES --- */
-        section { padding: 80 px 10 %; border-bottom: 3 px solid var (--texto); }
-
-        /* --- 7. BOTONES (CON TU FUENTE) --- */
-        .btn {
-            display: inline-block;
-            background-color: var (--texto);
-            color: var (--fondo);
-            padding: 15 px 30 px;
-            font-size: 1.5 em; /* Tamaño grande para lucir la fuente */
-            text-decoration: none;
-            margin-top: 20 px;
-            border: 3 px solid var (--texto);
-            box-shadow: 6 px 6 px 0 px rgba (0,0,0,0.5);
-            transition: all 0.2 s;
+        .news-text {
+            font-size: 16px;
+            color: #ddd;
         }
-        .btn:hover {
-            background-color: var (--fondo);
-            color: var (--texto);
-            box-shadow: 6 px 6 px 0 px var (--texto);
-            transform: translate (2 px, 2 px);
-            cursor: pointer;
-        }
-        
-        /* FOOTER */
-        footer { text-align: center; padding: 60 px; opacity: 0.6; }
 
+        /* Adaptación para celular (Mobile) */
+        @media (max-width: 768px) {
+            .news-item {
+                flex-direction: column; /* Una cosa arriba de la otra */
+            }
+            
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <nav>
-        <a href="#inicio">Inicio</a>
-        <a href="#juegos">Juegos</a>
-        <a href="#cursos">Cursos</a>
-        <a href="#merch">Merch</a>
-    </nav>
-
-    <header id="inicio">
-        <img src="logo1.png" alt="Cobayas Studio" class="logo-hero">
+    <header>
+        <div class="logo">cobayas</div>
         
-        <p class="hero-text">"Donde el pasado andino se encuentra con el pixel."</p>
-        
-        <a href="#juegos" class="btn">Explorar Proyectos</a>
+        <nav>
+            <ul>
+                <li><a href="Home.html" style="border-bottom: 2px solid white;">INICIO</a></li>
+                <li><a href="./juegos/index.html">JUEGOS</a></li>
+                <li><a href="./cursos/index.html">CURSOS</a></li>
+                <li><a href="./merch/index.html">MERCH</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <section id="juegos">
-        <h2>Nuestros Juegos</h2>
-        <p>Pronto subiremos las capturas de pantalla de La Ciudad Perdida y Leyendas.</p>
-        <a href="#" class="btn">Ver Demo</a>
-    </section>
+    <main class="container">
+        
+        <h1 class="page-title">NOTICIAS</h1>
 
-    <section id="cursos">
-        <h2>Academia</h2>
-        <p>Aprende a crear videojuegos usando GDevelop sin programar código complejo.</p>
-        <a href="#" class="btn">Ver Temario</a>
-    </section>
+        <article class="news-item">
+            <div class="news-image">
+                <img src="logo1.png" alt="Imagen de la noticia">
+            </div>
+            <div class="news-content">
+                <span class="news-date">22 Enero 2026</span>
+                <h2 class="news-title">Lanzamiento Web</h2>
+                <p class="news-text">
+                    Bienvenido al sitio oficial de Cobayas Studio. Estamos trabajando 
+                    en nuevos proyectos de pixel art y desarrollo de videojuegos. 
+                    Pronto actualizaremos con más novedades sobre nuestros cursos y merch.
+                </p>
+            </div>
+        </article>
 
-    <section id="merch">
-        <h2>Tienda Oficial</h2>
-        <p>Camisetas, stickers y arte digital de Cobayas.</p>
-        <a href="https://wa.me/593XXXXXXXXX" class="btn">WhatsApp</a>
-    </section>
+        <article class="news-item">
+            <div class="news-image">
+                <div style="background-color: #333; height: 200px; display:flex; align-items:center; justify-content:center; color:#555;">
+                    FOTO PROYECTO
+                </div>
+            </div>
+            <div class="news-content">
+                <span class="news-date">Próximamente</span>
+                <h2 class="news-title">Nuevo Juego en Proceso</h2>
+                <p class="news-text">
+                    Estamos prototipando mecánicas para nuestro siguiente título. 
+                    El estilo visual mantendrá nuestra esencia pixel art pero con nuevas 
+                    técnicas de iluminación.
+                </p>
+            </div>
+        </article>
 
-    <footer>
-        <p>© 2026 Cobayas Studio. Riobamba, Ecuador.</p>
-    </footer>
+    </main>
 
 </body>
 </html>
