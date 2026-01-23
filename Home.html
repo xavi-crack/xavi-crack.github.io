@@ -50,7 +50,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 40px; /* Misma altura que Juegos */
+            padding: 15px 40px; 
             position: sticky;
             top: 0;
             background-color: rgba(0, 0, 0, 0.95);
@@ -63,6 +63,7 @@
             font-size: 32px;
             letter-spacing: 2px;
             color: white;
+            line-height: 1; /* Esto ayuda a que el logo no descuadre */
         }
 
         nav ul {
@@ -74,14 +75,20 @@
             align-items: center;
         }
 
-        /* ESTILO DE LOS BOTONES DEL MENÚ (COPIADO DE JUEGOS PARA QUE SEA IDÉNTICO) */
+        /* --- AQUÍ ESTÁ EL ARREGLO --- */
         nav a {
             font-family: 'CobayasFont', sans-serif;
             font-size: 24px;
             text-transform: uppercase; 
             letter-spacing: 1px;
-            padding-bottom: 5px; /* ESTO CONTROLA LA ALTURA DE LA LÍNEA */
-            border-bottom: 1px solid transparent; /* Invisible por defecto */
+            
+            /* ESTAS SON LAS LÍNEAS QUE FALTABAN: */
+            display: inline-block; 
+            line-height: 1;       
+            
+            /* Ajusta esto si quieres la línea más cerca o lejos (ahora está a 5px) */
+            padding-bottom: 5px;   
+            border-bottom: 2px solid transparent; 
         }
 
         nav a:hover {
@@ -89,9 +96,9 @@
             text-shadow: 0 0 10px rgba(255,255,255,0.5);
         }
 
-        /* Clase para el botón activo (Línea blanca) */
+        /* Clase para el botón activo */
         nav a.active {
-            border-bottom: 1px solid white;
+            border-bottom: 2px solid white;
         }
 
         /* --- SECCIÓN DE NOTICIAS --- */
