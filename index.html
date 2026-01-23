@@ -5,37 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cobayas Studio</title>
     <style>
-        /* 1. Importar tu fuente (OJO con el nombre exacto del archivo en tu repo) */
         @font-face {
             font-family: 'CobayasFont';
             src: url('./CobayasFont-Regular.ttf') format('truetype');
         }
 
-        /* 2. Reset básico y fondo negro */
         body, html {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
             background-color: black;
-            overflow: hidden; /* Evita barras de scroll si el texto crece mucho */
-            
-            /* 3. Centrado perfecto usando Flexbox */
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        /* 4. Estilo del Botón / Texto */
         #interactive-btn {
-            font-family: 'CobayasFont', sans-serif; /* Fallback a sans-serif si falla la carga */
+            font-family: 'CobayasFont', sans-serif;
             color: white;
             text-decoration: none;
-            font-size: 80px; /* Tamaño base */
-            cursor: pointer;
-            transition: transform 0.1s ease-out; /* Suavizado del movimiento */
-            user-select: none; /* Evita que se seleccione el texto al hacer click */
+            font-size: 80px; 
+            
+            /* ESTADO INICIAL: Letras juntas (o normales) */
+            letter-spacing: 2px; 
+            
+            /* Animación suave para el espaciado */
+            transition: letter-spacing 0.5s ease; 
+            
+            user-select: none;
             text-align: center;
+            /* White-space nowrap asegura que el texto no salte de línea al expandirse */
+            white-space: nowrap; 
+        }
+
+        #interactive-btn:hover {
+            /* ESTADO EXPANDIDO: Aquí decides cuánto se separan */
+            letter-spacing: 20px; 
         }
     </style>
 </head>
@@ -45,35 +51,5 @@
         COBAYAS
     </a>
 
-    <script>
-        const btn = document.getElementById('interactive-btn');
-        
-        document.addEventListener('mousemove', (e) => {
-            // 1. Obtener coordenadas del centro del botón
-            const btnRect = btn.getBoundingClientRect();
-            const btnX = btnRect.left + btnRect.width / 2;
-            const btnY = btnRect.top + btnRect.height / 2;
-
-            // 2. Calcular distancia del mouse al centro del botón (Teorema de Pitágoras)
-            const dist = Math.sqrt(Math.pow(e.clientX - btnX, 2) + Math.pow(e.clientY - btnY, 2));
-
-            // 3. Definir el radio de efecto (qué tan lejos empieza a reaccionar)
-            const maxDistance = 500; // Pixeles
-
-            // 4. Calcular la escala (mientras más cerca, más grande)
-            // Si la distancia es mayor a 500, la escala es 1 (normal).
-            // Si es 0 (encima), crecerá.
-            let scale = 1;
-            
-            if (dist < maxDistance) {
-                // La fórmula invierte la distancia para crear el efecto de crecimiento
-                // Puedes jugar con el "0.5" para hacerlo más o menos exagerado
-                scale = 1 + ((maxDistance - dist) / maxDistance) * 0.8; 
-            }
-
-            // 5. Aplicar la transformación
-            btn.style.transform = `scale(${scale})`;
-        });
-    </script>
 </body>
 </html>
