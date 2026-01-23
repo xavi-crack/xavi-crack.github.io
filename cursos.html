@@ -208,6 +208,23 @@
             header { flex-direction: column; gap: 15px; }
             nav ul { flex-wrap: wrap; justify-content: center; }
         }
+        
+        /* --- ANIMACIÓN DE ENTRADA SUAVE --- */
+        body {
+            /* La magia ocurre aquí: */
+            animation: aparecer 0.8s ease-out;
+        }
+
+        @keyframes aparecer {
+            0% {
+                opacity: 0;
+                transform: translateY(10px); /* Empieza un poco más abajo */
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0); /* Termina en su lugar */
+            }
+        }
     </style>
 </head>
 <body>
