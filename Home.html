@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio - Cobayas Studio</title>
-    <link rel="icon" type="image/png" href="./logo1.png">
     
+    <link rel="icon" type="image/png" href="./logo1.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
 
     <style>
-        /* --- 1. CONFIGURACIÓN DE FUENTES --- */
+        /* --- CONFIGURACIÓN DE FUENTES --- */
         @font-face {
             font-family: 'CobayasFont';
             src: url('./CobayasFont-Regular.ttf') format('truetype');
@@ -23,18 +24,16 @@
             --accent-color: #cccccc; 
         }
 
-        /* --- 2. ESTILOS GENERALES --- */
+        /* --- ESTILOS GENERALES --- */
         body {
             margin: 0;
             padding: 0;
             background-color: var(--bg-color);
             color: var(--text-color);
-            /* El cuerpo (noticias) usa Montserrat para que se lea fácil */
             font-family: 'Montserrat', sans-serif; 
             line-height: 1.6;
         }
 
-        /* Títulos usan tu fuente */
         h1, h2, h3 {
             font-family: 'CobayasFont', sans-serif;
             font-weight: normal;
@@ -46,16 +45,12 @@
             transition: color 0.3s ease;
         }
 
-        a:hover {
-            color: var(--accent-color);
-        }
-
-        /* --- 3. BARRA DE NAVEGACIÓN (HEADER) --- */
+        /* --- BARRA DE NAVEGACIÓN (HEADER) --- */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 40px; /* Un poco menos de padding vertical */
+            padding: 15px 40px; /* Misma altura que Juegos */
             position: sticky;
             top: 0;
             background-color: rgba(0, 0, 0, 0.95);
@@ -67,6 +62,7 @@
             font-family: 'CobayasFont';
             font-size: 32px;
             letter-spacing: 2px;
+            color: white;
         }
 
         nav ul {
@@ -78,21 +74,27 @@
             align-items: center;
         }
 
-        /* ESTILO DE LOS BOTONES DEL MENÚ */
+        /* ESTILO DE LOS BOTONES DEL MENÚ (COPIADO DE JUEGOS PARA QUE SEA IDÉNTICO) */
         nav a {
-            font-family: 'CobayasFont', sans-serif; /* AQUI ESTÁ EL CAMBIO */
-            font-size: 24px; /* Más grande para que se luzca la fuente */
+            font-family: 'CobayasFont', sans-serif;
+            font-size: 24px;
             text-transform: uppercase; 
             letter-spacing: 1px;
+            padding-bottom: 5px; /* ESTO CONTROLA LA ALTURA DE LA LÍNEA */
+            border-bottom: 1px solid transparent; /* Invisible por defecto */
         }
 
-        /* Pequeño efecto al pasar el mouse por los botones */
         nav a:hover {
             color: #fff;
-            text-shadow: 0 0 10px rgba(255,255,255,0.5); /* Brillito */
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
         }
 
-        /* --- 4. SECCIÓN DE NOTICIAS --- */
+        /* Clase para el botón activo (Línea blanca) */
+        nav a.active {
+            border-bottom: 1px solid white;
+        }
+
+        /* --- SECCIÓN DE NOTICIAS --- */
         .container {
             max-width: 900px;
             margin: 0 auto;
@@ -101,7 +103,7 @@
 
         .page-title {
             text-align: center;
-            font-size: 70px; /* Título un poco más grande */
+            font-size: 70px;
             margin-bottom: 50px;
             border-bottom: 1px solid #333;
             padding-bottom: 20px;
@@ -137,7 +139,7 @@
         }
 
         .news-date {
-            font-family: 'Montserrat', sans-serif; /* Fecha legible */
+            font-family: 'Montserrat', sans-serif;
             font-size: 12px;
             color: #888;
             margin-bottom: 5px;
@@ -146,7 +148,7 @@
         }
 
         .news-title {
-            font-size: 40px; /* Títulos de noticias más grandes */
+            font-size: 40px;
             margin: 0 0 10px 0;
             line-height: 1;
         }
@@ -156,19 +158,10 @@
             color: #ccc;
         }
 
-        /* Mobile */
         @media (max-width: 768px) {
-            .news-item {
-                flex-direction: column;
-            }
-            header {
-                flex-direction: column;
-                gap: 15px;
-            }
-            nav ul {
-                flex-wrap: wrap; /* Si no caben, bajan de línea */
-                justify-content: center;
-            }
+            .news-item { flex-direction: column; }
+            header { flex-direction: column; gap: 15px; }
+            nav ul { flex-wrap: wrap; justify-content: center; }
         }
     </style>
 </head>
@@ -179,7 +172,7 @@
         
         <nav>
             <ul>
-                <li><a href="Home.html" style="border-bottom: 1px solid white;">Inicio</a></li>
+                <li><a href="Home.html" class="active">Inicio</a></li>
                 <li><a href="juegos.html">Juegos</a></li>
                 <li><a href="cursos.html">Cursos</a></li>
                 <li><a href="merch.html">Merch</a></li>
