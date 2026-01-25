@@ -63,7 +63,7 @@
             font-size: 32px;
             letter-spacing: 2px;
             color: white;
-            line-height: 1; /* Esto ayuda a que el logo no descuadre */
+            line-height: 1;
         }
 
         nav ul {
@@ -75,18 +75,13 @@
             align-items: center;
         }
 
-        /* --- AQUÍ ESTÁ EL ARREGLO --- */
         nav a {
             font-family: 'CobayasFont', sans-serif;
             font-size: 24px;
             text-transform: uppercase; 
             letter-spacing: 1px;
-            
-            /* ESTAS SON LAS LÍNEAS QUE FALTABAN: */
             display: inline-block; 
-            line-height: 1;       
-            
-            /* Ajusta esto si quieres la línea más cerca o lejos (ahora está a 5px) */
+            line-height: 1;        
             padding-bottom: 5px;   
             border-bottom: 2px solid transparent; 
         }
@@ -165,6 +160,26 @@
             color: #ccc;
         }
 
+        /* Estilo para el botón de la reunión */
+        .meet-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #fff;
+            color: #000;
+            font-weight: bold;
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .meet-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+            color: #000; /* Asegura que el texto siga negro */
+        }
+
         @media (max-width: 768px) {
             .news-item { flex-direction: column; }
             header { flex-direction: column; gap: 15px; }
@@ -173,18 +188,17 @@
 
         /* --- ANIMACIÓN DE ENTRADA SUAVE --- */
         body {
-            /* La magia ocurre aquí: */
             animation: aparecer 0.8s ease-out;
         }
 
         @keyframes aparecer {
             0% {
                 opacity: 0;
-                transform: translateY(10px); /* Empieza un poco más abajo */
+                transform: translateY(10px); 
             }
             100% {
                 opacity: 1;
-                transform: translateY(0); /* Termina en su lugar */
+                transform: translateY(0); 
             }
         }
     </style>
@@ -207,6 +221,26 @@
     <main class="container">
         
         <h1 class="page-title">Actualizaciones</h1>
+
+        <article class="news-item" style="border: 1px solid #444; background-color: #1a1a1a;">
+            <div class="news-image">
+                <div style="background-color: #000; height: 100%; min-height: 200px; display:flex; align-items:center; justify-content:center; color:#fff; font-family:'CobayasFont'; font-size:30px; text-align: center; border: 1px dashed #555;">
+                    EVENTO<br>EN VIVO
+                </div>
+            </div>
+            <div class="news-content">
+                <span class="news-date" style="color: #fff;">29 Enero 2026 - 19:00 PM</span>
+                <h2 class="news-title">Lanzamiento Oficial: Proyecto Cobayas</h2>
+                <p class="news-text">
+                    ¡Es el momento! Acompáñanos este jueves en la presentación pública 
+                    de nuestro nuevo videojuego. Mostraremos gameplay en vivo y hablaremos 
+                    del futuro del estudio.
+                </p>
+                <a href="https://meet.google.com/AQUI-PONES-TU-LINK-DE-MEET" target="_blank" class="meet-link">
+                    UNIRSE A LA REUNIÓN
+                </a>
+            </div>
+        </article>
 
         <article class="news-item">
             <div class="news-image">
