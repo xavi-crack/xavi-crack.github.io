@@ -13,6 +13,8 @@ gdjs.menuCode.GDNewSprite4Objects1= [];
 gdjs.menuCode.GDNewSprite4Objects2= [];
 gdjs.menuCode.GDNewSprite5Objects1= [];
 gdjs.menuCode.GDNewSprite5Objects2= [];
+gdjs.menuCode.GDNewSprite6Objects1= [];
+gdjs.menuCode.GDNewSprite6Objects2= [];
 
 
 gdjs.menuCode.eventsList0 = function(runtimeScene) {
@@ -56,6 +58,8 @@ gdjs.menuCode.GDNewSprite4Objects1.length = 0;
 gdjs.menuCode.GDNewSprite4Objects2.length = 0;
 gdjs.menuCode.GDNewSprite5Objects1.length = 0;
 gdjs.menuCode.GDNewSprite5Objects2.length = 0;
+gdjs.menuCode.GDNewSprite6Objects1.length = 0;
+gdjs.menuCode.GDNewSprite6Objects2.length = 0;
 
 gdjs.menuCode.eventsList0(runtimeScene);
 gdjs.menuCode.GDPlayButtonObjects1.length = 0;
@@ -70,6 +74,8 @@ gdjs.menuCode.GDNewSprite4Objects1.length = 0;
 gdjs.menuCode.GDNewSprite4Objects2.length = 0;
 gdjs.menuCode.GDNewSprite5Objects1.length = 0;
 gdjs.menuCode.GDNewSprite5Objects2.length = 0;
+gdjs.menuCode.GDNewSprite6Objects1.length = 0;
+gdjs.menuCode.GDNewSprite6Objects2.length = 0;
 
 
 return;
