@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Jams - Cobayas Studio</title>
+    
+    <link rel="icon" type="image/png" href="./logo1.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- 1. CARGAMOS TU FUENTE --- */
+        @font-face {
+            font-family: 'CobayasFont';
+            src: url('./CobayasFont-Regular.ttf') format('truetype');
+        }
+
+        /* --- 2. ESTILO GENERAL (Blanco y Negro) --- */
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif; /* Texto normal */
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            /* Animación de entrada suave */
+            animation: aparecer 0.8s ease-out;
+        }
+
+        /* --- 3. BOTÓN VOLVER (Esquina Superior Izquierda) --- */
+        .back-home {
+            position: absolute;
+            top: 30px;
+            left: 40px;
+            font-family: 'CobayasFont', sans-serif; /* ¡Tu fuente! */
+            font-size: 24px;
+            color: #ffffff;
+            text-decoration: none;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            z-index: 100;
+            line-height: 1;
+            border-bottom: 2px solid transparent;
+        }
+
+        .back-home:hover {
+            color: #ccc;
+            border-bottom: 2px solid #ccc;
+        }
+
+        /* --- 4. TÍTULOS --- */
+        h1, h2 {
+            font-family: 'CobayasFont';
+            font-weight: normal;
+            line-height: 1;
+        }
+
+        h1 {
+            font-size: 60px; 
+            margin-top: 60px; /* Margen extra para no chocar con el botón */
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 30px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 50px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* --- 5. LA GALERÍA --- */
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-bottom: 60px;
+        }
+
+        /* --- 6. TARJETA MINIMALISTA --- */
+        .game-card {
+            background-color: #111;
+            border: 1px solid #333;
+            width: 320px;
+            text-align: left;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            border-color: #ffffff; 
+        }
+
+        .game-image {
+            width: 100%;
+            height: 180px;
+            background-color: #222;
+            object-fit: cover;
+            border-bottom: 1px solid #333;
+        }
+
+        .card-content {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        h2 {
+            font-size: 32px;
+            margin: 0 0 15px 0;
+        }
+
+        p {
+            font-size: 13px;
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        /* --- 7. BOTÓN JUGAR --- */
+        .play-btn {
+            display: block;
+            background-color: transparent;
+            border: 1px solid white;
+            color: white;
+            padding: 12px 0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: center;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .play-btn:hover {
+            background-color: white;
+            color: black;
+            cursor: pointer;
+        }
+
+        /* Animación */
+        @keyframes aparecer {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Ajuste para móviles */
+        @media (max-width: 768px) {
+            .back-home { position: static; display: block; margin-bottom: 20px; text-align: left; }
+            h1 { margin-top: 0; font-size: 40px; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <a href="juegos.html" class="back-home">← Volver</a>
+
+    <h1>GAME JAMS</h1>
+    <p class="subtitle">Archivo de prototipos experimentales</p>
+
+    <div class="gallery-container">
+
+        <div class="game-card">
+            <div class="game-image"></div> 
+            
+            <div class="card-content">
+                <h2>La Pasada</h2>
+                <p>
+                    Aventura de plataformas en el Chimborazo creada en 48 horas.
+                    Ayuda a Sami a recuperar las máscaras perdidas del Pawkar Raymi.
+                </p>
+
+                <a href="la pasada0/index.html" class="play-btn">JUGAR AHORA</a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
