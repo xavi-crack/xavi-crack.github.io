@@ -4,126 +4,186 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Jams - Cobayas Studio</title>
+    
+    <link rel="icon" type="image/png" href="./logo1.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+
     <style>
-        /* ESTILO GENERAL (Oscuro y Gamer) */
+        /* --- 1. CARGAMOS TU FUENTE --- */
+        @font-face {
+            font-family: 'CobayasFont';
+            src: url('./CobayasFont-Regular.ttf') format('truetype');
+        }
+
+        /* --- 2. ESTILO GENERAL (Blanco y Negro) --- */
         body {
-            background-color: #1a1a1a; /* Fondo gris oscuro */
+            background-color: #000000;
             color: #ffffff;
-            font-family: 'Courier New', Courier, monospace; /* Fuente tipo código/pixel */
+            font-family: 'Montserrat', sans-serif; /* Texto normal */
             margin: 0;
             padding: 20px;
             text-align: center;
+            /* Animación de entrada suave */
+            animation: aparecer 0.8s ease-out;
+        }
+
+        /* --- 3. TÍTULOS CON COBAYAS FONT --- */
+        h1, h2 {
+            font-family: 'CobayasFont';
+            font-weight: normal;
+            line-height: 1;
         }
 
         h1 {
-            color: #ffcc00; /* Amarillo eléctrico */
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 40px;
+            font-size: 60px; /* Tamaño grande */
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 30px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        /* LA GALERÍA (Cuadrícula) */
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 50px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* --- 4. LA GALERÍA --- */
         .gallery-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 30px;
+            gap: 40px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        /* TARJETA DEL JUEGO */
+        /* --- 5. TARJETA MINIMALISTA --- */
         .game-card {
-            background-color: #2d2d2d;
-            border: 2px solid #444;
-            border-radius: 10px;
-            width: 300px;
-            padding: 20px;
+            background-color: #111;
+            border: 1px solid #333; /* Borde sutil */
+            width: 320px;
+            text-align: left;
             transition: transform 0.3s ease, border-color 0.3s ease;
             display: flex;
             flex-direction: column;
-            align-items: center;
         }
 
         .game-card:hover {
-            transform: translateY(-10px); /* Efecto de flotar al pasar el mouse */
-            border-color: #ffcc00;
+            transform: translateY(-5px);
+            border-color: #ffffff; /* Se ilumina el borde al pasar el mouse */
         }
 
-        /* IMAGEN DEL JUEGO (Placeholder) */
         .game-image {
             width: 100%;
-            height: 150px;
-            background-color: #000;
-            border-radius: 5px;
-            margin-bottom: 15px;
+            height: 180px;
+            background-color: #222;
             object-fit: cover;
-            /* Si tienes una imagen, cambia el src abajo */
+            border-bottom: 1px solid #333;
+            /* Si no hay imagen, muestra un gris oscuro elegante */
+        }
+
+        .card-content {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
         h2 {
-            margin: 10px 0;
-            font-size: 1.5rem;
+            font-size: 32px;
+            margin: 0 0 15px 0;
         }
 
         p {
-            font-size: 0.9rem;
-            color: #cccccc;
-            margin-bottom: 20px;
-            line-height: 1.4;
+            font-size: 13px;
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            flex-grow: 1;
         }
 
-        /* BOTÓN DE PLAY */
+        /* --- 6. BOTÓN ESTILO COBAYAS (Cuadrado y Borde) --- */
         .play-btn {
-            background-color: #ff4757; /* Rojo intenso */
+            display: block;
+            background-color: transparent;
+            border: 1px solid white;
             color: white;
-            text-decoration: none;
-            padding: 10px 30px;
-            border-radius: 25px;
+            padding: 12px 0;
+            font-family: 'Montserrat', sans-serif;
             font-weight: bold;
-            font-size: 1.1rem;
-            border: 2px solid transparent;
+            text-transform: uppercase;
+            text-align: center;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-decoration: none;
             transition: all 0.3s ease;
         }
 
         .play-btn:hover {
-            background-color: transparent;
-            border-color: #ff4757;
-            color: #ff4757;
+            background-color: white;
+            color: black;
             cursor: pointer;
         }
 
-        /* Botón de volver al inicio */
+        /* Botón de volver */
         .back-home {
             display: inline-block;
-            margin-top: 50px;
-            color: #888;
+            margin-top: 60px;
+            color: #666;
+            font-size: 12px;
             text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 1px solid transparent;
+            padding-bottom: 5px;
+            transition: 0.3s;
         }
+
+        .back-home:hover {
+            color: white;
+            border-bottom: 1px solid white;
+        }
+
+        /* Animación */
+        @keyframes aparecer {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
     </style>
 </head>
 <body>
 
-    <h1>🏆 Archivos de Game Jams 🏆</h1>
-    <p>Aquí subimos nuestros experimentos de 48 horas.</p>
+    <h1>GAME JAMS</h1>
+    <p class="subtitle">Archivo de prototipos experimentales</p>
 
     <div class="gallery-container">
 
         <div class="game-card">
-            <img src="logo1.png" alt="La Pasada" class="game-image">
-            
-            <h2>La Pasada</h2>
-            <p>
-                Ayuda a Sami a recuperar las máscaras del Pawkar Raymi. 
-                Una aventura de plataformas en el Chimborazo creada para la GGJ.
-            </p>
+            <div class="game-image"></div> 
+            <div class="card-content">
+                <h2>La Pasada</h2>
+                <p>
+                    Aventura de plataformas en el Chimborazo creada en 48 horas.
+                    Ayuda a Sami a recuperar las máscaras perdidas del Pawkar Raymi.
+                </p>
 
-            <a href="la pasada0/index.html" class="play-btn">▶ JUGAR AHORA</a>
+                <a href="la pasada0/index.html" class="play-btn">JUGAR AHORA</a>
+            </div>
         </div>
 
         </div>
 
-    <a href="index.html" class="back-home">← Volver al Inicio</a>
+    <a href="juegos.html" class="back-home">← Volver a Proyectos</a>
 
 </body>
 </html>
