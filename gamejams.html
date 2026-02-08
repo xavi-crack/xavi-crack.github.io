@@ -105,11 +105,12 @@
             border-color: #ffffff; 
         }
 
+        /* CAMBIO IMPORTANTE: Ahora esto aplica a la imagen IMG */
         .game-image {
             width: 100%;
             height: 180px;
             background-color: #222;
-            object-fit: cover;
+            object-fit: cover; /* Esto hace que la foto se recorte bien sin deformarse */
             border-bottom: 1px solid #333;
         }
 
@@ -180,7 +181,7 @@
     <div class="gallery-container">
 
         <div class="game-card">
-            <div class="game-image"></div> 
+            <img src="IMG_0052.PNG" class="game-image" alt="Portada La Pasada">
             
             <div class="card-content">
                 <h2>LA PASADA</h2>
