@@ -18,14 +18,17 @@
             src: url('./CobayasFont-Regular.ttf') format('truetype');
         }
 
-        /* --- COLORES Y BASE --- */
+        /* --- PALETA DE COLORES (Igual a Home) --- */
         :root {
             --bg-color: #222222;
-            --card-bg: #111111;
-            --text-color: #ffffff;
+            --text-color: #F9f4da; 
+            --text-muted: #dcd8c0; 
+            --card-bg: #1a1a1a;
+            --border-color: rgba(249, 244, 218, 0.2);
             --accent-color: #cccccc;
         }
 
+        /* --- ESTILOS GENERALES --- */
         body {
             margin: 0;
             padding: 0;
@@ -33,11 +36,11 @@
             color: var(--text-color);
             font-family: 'Montserrat', sans-serif;
             padding-bottom: 60px;
-            /* La magia ocurre aquí: */
+            /* Animación de entrada */
             animation: aparecer 0.8s ease-out;
         }
 
-        a { text-decoration: none; color: white; transition: 0.3s; }
+        a { text-decoration: none; color: var(--text-color); transition: 0.3s; }
 
         /* --- HEADER (IGUAL A HOME) --- */
         header {
@@ -45,18 +48,19 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 40px; 
-            background-color: rgba(0, 0, 0, 0.95);
-            border-bottom: 1px solid #333;
+            background-color: rgba(34, 34, 34, 0.95);
+            border-bottom: 1px solid var(--border-color);
             position: sticky;
             top: 0;
             z-index: 1000;
+            backdrop-filter: blur(5px);
         }
 
         .logo {
             font-family: 'CobayasFont';
             font-size: 32px;
             letter-spacing: 2px;
-            color: white;
+            color: var(--text-color);
             line-height: 1; 
         }
 
@@ -74,22 +78,22 @@
             font-size: 24px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            
             display: inline-block; 
             line-height: 1;        
-            
             padding-bottom: 5px; 
             border-bottom: 2px solid transparent; 
+            color: var(--text-muted);
         }
 
         nav a:hover {
-            color: #fff;
-            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+            color: var(--text-color);
+            text-shadow: 0 0 8px rgba(249, 244, 218, 0.4);
         }
 
         /* Clase para la página activa */
         nav a.active {
-            border-bottom: 2px solid white;
+            color: var(--text-color);
+            border-bottom: 2px solid var(--text-color);
         }
 
         /* --- GALERÍA DE JUEGOS --- */
@@ -104,8 +108,9 @@
             text-align: center;
             font-size: 70px;
             margin-bottom: 60px;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid var(--border-color);
             padding-bottom: 20px;
+            color: var(--text-color);
         }
 
         .games-grid {
@@ -116,7 +121,7 @@
 
         .game-card {
             background-color: var(--card-bg);
-            border: 1px solid #333;
+            border: 1px solid var(--border-color);
             border-radius: 8px;
             overflow: hidden;
             transition: transform 0.3s ease, border-color 0.3s ease;
@@ -126,15 +131,27 @@
 
         .game-card:hover {
             transform: translateY(-5px);
-            border-color: #555;
+            border-color: var(--text-color);
         }
 
         .game-image {
             width: 100%;
             height: 200px;
-            background-color: #222;
+            background-color: #111;
             object-fit: cover;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* Estilo para los placeholders (cajas sin imagen) */
+        .placeholder-box {
+            background: #151515; 
+            display:flex; 
+            align-items:center; 
+            justify-content:center; 
+            color: var(--text-muted);
+            font-family: 'CobayasFont';
+            font-size: 24px;
+            letter-spacing: 2px;
         }
 
         .game-info {
@@ -149,21 +166,23 @@
             font-size: 35px;
             margin: 0 0 15px 0;
             line-height: 1;
+            color: var(--text-color);
         }
 
         .game-desc {
             font-size: 14px;
-            color: #bbb;
+            color: var(--text-muted);
             margin-bottom: 25px;
             line-height: 1.6;
             flex-grow: 1;
         }
 
+        /* Botones actualizados al tema */
         .play-btn {
             display: block;
             background-color: transparent;
-            border: 1px solid white;
-            color: white;
+            border: 1px solid var(--text-color);
+            color: var(--text-color);
             padding: 12px 0;
             font-family: 'Montserrat', sans-serif;
             font-weight: bold;
@@ -172,11 +191,14 @@
             font-size: 12px;
             letter-spacing: 2px;
             border-radius: 4px;
+            transition: all 0.3s ease;
         }
 
         .play-btn:hover {
-            background-color: white;
-            color: black;
+            background-color: var(--text-color);
+            color: var(--bg-color); /* Texto oscuro sobre fondo claro */
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(249, 244, 218, 0.3);
         }
         
         @media (max-width: 768px) {
@@ -230,7 +252,7 @@
             </article>
 
             <article class="game-card">
-                <div class="game-image" style="background: #222; display:flex; align-items:center; justify-content:center; color:#444;">
+                <div class="game-image placeholder-box">
                     EN DESARROLLO
                 </div>
                 <div class="game-info">
@@ -240,12 +262,14 @@
                         leyenda local Mantense que relata la historia y Cultura
                         de la antigua civilización de los Mantas.
                     </p>
-                    <a href="#" class="play-btn">Próximamente</a>
+                    <a href="#" class="play-btn" style="opacity: 0.5; cursor: default;">Próximamente</a>
                 </div>
             </article>
 
             <article class="game-card">
-                <div class="game-image" style="background: #222;"></div>
+                <div class="game-image placeholder-box">
+                    GAME JAMS
+                </div>
                 <div class="game-info">
                     <h2 class="game-title">Game Jams</h2>
                     <p class="game-desc">
