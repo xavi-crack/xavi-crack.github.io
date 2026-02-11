@@ -18,13 +18,16 @@
             src: url('./CobayasFont-Regular.ttf') format('truetype');
         }
 
-        /* --- COLORES (SOLO BLANCO Y NEGRO) --- */
+        /* --- PALETA DE COLORES UNIFICADA --- */
         :root {
             --bg-color: #222222;
-            --card-bg: #111111;
-            --text-color: #ffffff;
+            --text-color: #F9f4da; 
+            --text-muted: #dcd8c0; 
+            --card-bg: #1a1a1a;
+            --border-color: rgba(249, 244, 218, 0.2);
         }
 
+        /* --- ESTILOS GENERALES --- */
         body {
             margin: 0;
             padding: 0;
@@ -32,28 +35,31 @@
             color: var(--text-color);
             font-family: 'Montserrat', sans-serif;
             padding-bottom: 60px;
+            /* Animación de entrada */
+            animation: aparecer 0.8s ease-out;
         }
 
-        a { text-decoration: none; color: white; transition: 0.3s; }
+        a { text-decoration: none; color: var(--text-color); transition: 0.3s; }
 
-        /* --- HEADER (COPIA EXACTA DE HOME/JUEGOS) --- */
+        /* --- HEADER (UNIFICADO) --- */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 15px 40px; 
-            background-color: rgba(0, 0, 0, 0.95);
-            border-bottom: 1px solid #333;
+            background-color: rgba(34, 34, 34, 0.95);
+            border-bottom: 1px solid var(--border-color);
             position: sticky;
             top: 0;
             z-index: 1000;
+            backdrop-filter: blur(5px);
         }
 
         .logo {
             font-family: 'CobayasFont';
             font-size: 32px;
             letter-spacing: 2px;
-            color: white;
+            color: var(--text-color);
             line-height: 1;
         }
 
@@ -77,16 +83,18 @@
             line-height: 1;       
             padding-bottom: 5px; 
             border-bottom: 2px solid transparent; 
+            color: var(--text-muted);
         }
 
         nav a:hover {
-            color: #fff;
-            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+            color: var(--text-color);
+            text-shadow: 0 0 8px rgba(249, 244, 218, 0.4);
         }
 
         /* Clase activa para esta página */
         nav a.active {
-            border-bottom: 2px solid white;
+            color: var(--text-color);
+            border-bottom: 2px solid var(--text-color);
         }
 
         /* --- SECCIÓN DE CURSOS --- */
@@ -101,8 +109,9 @@
             text-align: center;
             font-size: 70px;
             margin-bottom: 60px;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid var(--border-color);
             padding-bottom: 20px;
+            color: var(--text-color);
         }
 
         .courses-grid {
@@ -114,7 +123,7 @@
         /* TARJETA DE CURSO */
         .course-card {
             background-color: var(--card-bg);
-            border: 1px solid #333;
+            border: 1px solid var(--border-color);
             border-radius: 8px;
             overflow: hidden;
             transition: transform 0.3s ease, border-color 0.3s ease;
@@ -125,30 +134,43 @@
 
         .course-card:hover {
             transform: translateY(-5px);
-            border-color: #555;
+            border-color: var(--text-color);
         }
 
-        /* Etiqueta de estado (Ahora en blanco y negro) */
+        /* Etiqueta de estado estilizada */
         .status-badge {
             position: absolute;
             top: 10px;
             right: 10px;
-            background-color: rgba(0,0,0,0.8);
-            border: 1px solid white;
-            color: white;
+            background-color: rgba(17, 17, 17, 0.9);
+            border: 1px solid var(--text-color);
+            color: var(--text-color);
             padding: 5px 10px;
             font-size: 10px;
             text-transform: uppercase;
             font-weight: bold;
             border-radius: 4px;
+            letter-spacing: 1px;
         }
 
         .course-image {
             width: 100%;
             height: 250px; 
-            background-color: #222;
+            background-color: #111;
             object-fit: cover;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        /* Placeholder para imagen */
+        .placeholder-box {
+            background: #151515; 
+            display:flex; 
+            align-items:center; 
+            justify-content:center; 
+            color: var(--text-muted);
+            font-family: 'CobayasFont';
+            font-size: 24px;
+            letter-spacing: 2px;
         }
 
         .course-info {
@@ -163,20 +185,21 @@
             font-size: 30px;
             margin: 0 0 10px 0;
             line-height: 1.1;
-            color: white; /* Todo blanco */
+            color: var(--text-color);
         }
 
         .course-details {
             font-size: 12px;
-            color: #ccc; /* Gris muy claro */
+            color: var(--text-muted); 
             margin-bottom: 15px;
             display: flex;
             gap: 15px;
+            font-weight: bold;
         }
         
         .course-desc {
             font-size: 14px;
-            color: #ccc;
+            color: var(--text-muted);
             margin-bottom: 25px;
             line-height: 1.6;
             flex-grow: 1;
@@ -186,8 +209,8 @@
         .action-btn {
             display: block;
             background-color: transparent;
-            border: 1px solid white;
-            color: white;
+            border: 1px solid var(--text-color);
+            color: var(--text-color);
             padding: 12px 0;
             font-family: 'Montserrat', sans-serif;
             font-weight: bold;
@@ -200,8 +223,10 @@
         }
 
         .action-btn:hover {
-            background-color: white;
-            color: black; /* Al pasar el mouse se invierte para leerse bien */
+            background-color: var(--text-color);
+            color: var(--bg-color); /* Texto oscuro para contraste */
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(249, 244, 218, 0.3);
         }
         
         @media (max-width: 768px) {
@@ -210,19 +235,14 @@
         }
         
         /* --- ANIMACIÓN DE ENTRADA SUAVE --- */
-        body {
-            /* La magia ocurre aquí: */
-            animation: aparecer 0.8s ease-out;
-        }
-
         @keyframes aparecer {
             0% {
                 opacity: 0;
-                transform: translateY(10px); /* Empieza un poco más abajo */
+                transform: translateY(10px); 
             }
             100% {
                 opacity: 1;
-                transform: translateY(0); /* Termina en su lugar */
+                transform: translateY(0); 
             }
         }
     </style>
@@ -264,8 +284,8 @@
             </article>
 
             <article class="course-card">
-                <span class="status-badge">Lista de Espera</span>
-                <div class="course-image" style="background: #222; display:flex; align-items:center; justify-content:center; color:#555;">
+                <span class="status-badge" style="border-color: var(--text-muted); color: var(--text-muted);">Lista de Espera</span>
+                <div class="course-image placeholder-box">
                     IMG TALLER
                 </div>
                 <div class="course-info">
@@ -278,13 +298,15 @@
                         Crea tu primer videojuego sin código complejo. 
                         Entiende la lógica de eventos, físicas y colisiones.
                     </p>
-                    <a href="#" class="action-btn">Más Info</a>
+                    <a href="#" class="action-btn" style="opacity: 0.7;">Más Info</a>
                 </div>
             </article>
 
             <article class="course-card">
-                <span class="status-badge">Bajo Pedido</span>
-                <div class="course-image" style="background: #222;"></div>
+                <span class="status-badge" style="border-color: var(--text-muted); color: var(--text-muted);">Bajo Pedido</span>
+                <div class="course-image placeholder-box">
+                    MENTORÍAS
+                </div>
                 <div class="course-info">
                     <h2 class="course-title">Mentorias</h2>
                     <div class="course-details">
