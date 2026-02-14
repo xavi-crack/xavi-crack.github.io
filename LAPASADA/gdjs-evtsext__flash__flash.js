@@ -22,14 +22,14 @@ gdjs.evtsExt__Flash__Flash.Flash = class Flash extends gdjs.RuntimeBehavior {
   }
 
   // Hot-reload:
-  updateFromBehaviorData(oldBehaviorData, newBehaviorData) {
+  applyBehaviorOverriding(behaviorOverriding) {
     
-    if (oldBehaviorData.HalfPeriodTime !== newBehaviorData.HalfPeriodTime)
-      this._behaviorData.HalfPeriodTime = newBehaviorData.HalfPeriodTime;
-    if (oldBehaviorData.IsFlashing !== newBehaviorData.IsFlashing)
-      this._behaviorData.IsFlashing = newBehaviorData.IsFlashing;
-    if (oldBehaviorData.FlashDuration !== newBehaviorData.FlashDuration)
-      this._behaviorData.FlashDuration = newBehaviorData.FlashDuration;
+    if (behaviorOverriding.HalfPeriodTime !== undefined)
+      this._behaviorData.HalfPeriodTime = behaviorOverriding.HalfPeriodTime;
+    if (behaviorOverriding.IsFlashing !== undefined)
+      this._behaviorData.IsFlashing = behaviorOverriding.IsFlashing;
+    if (behaviorOverriding.FlashDuration !== undefined)
+      this._behaviorData.FlashDuration = behaviorOverriding.FlashDuration;
 
     return true;
   }
@@ -139,6 +139,7 @@ if (isConditionTrue_0) {
     gdjs.evtsExt__Flash__Flash.Flash.prototype.doStepPreEventsContext.GDObjectObjects2[i].resetTimer("Flash_Visibility_Timer");
 }
 }
+elseEventsChainSatisfied = true;
 }
 
 }
@@ -171,6 +172,7 @@ if (isConditionTrue_0) {
     gdjs.evtsExt__Flash__Flash.Flash.prototype.doStepPreEventsContext.GDObjectObjects1[i].getBehavior(eventsFunctionContext.getBehaviorName("Behavior")).Stop(eventsFunctionContext);
 }
 }
+elseEventsChainSatisfied = true;
 }
 
 }
@@ -205,6 +207,7 @@ if (isConditionTrue_0) {
 
 { //Subevents
 gdjs.evtsExt__Flash__Flash.Flash.prototype.doStepPreEventsContext.eventsList2(runtimeScene, eventsFunctionContext);} //End of subevents
+elseEventsChainSatisfied = true;
 }
 
 }
@@ -321,6 +324,7 @@ if (isConditionTrue_0) {
     gdjs.evtsExt__Flash__Flash.Flash.prototype.FlashContext.GDObjectObjects1[i].resetTimer("Flash_Visibility_Timer");
 }
 }
+elseEventsChainSatisfied = true;
 }
 
 }
@@ -338,6 +342,7 @@ gdjs.copyArray(eventsFunctionContext.getObjects("Object"), gdjs.evtsExt__Flash__
 }
 {eventsFunctionContext.getObjects("Object")[0].getBehavior(eventsFunctionContext.getBehaviorName("Behavior"))._setFlashDuration(eventsFunctionContext.getArgument("NewFlashDuration"))
 }
+elseEventsChainSatisfied = true;
 }
 
 }
@@ -434,6 +439,7 @@ gdjs.evtsExt__Flash__Flash.Flash.prototype.IsFlashingContext.eventsList0 = funct
 let isConditionTrue_0 = false;
 {
 {eventsFunctionContext.returnValue = false;}
+elseEventsChainSatisfied = true;
 }
 
 }
@@ -448,6 +454,7 @@ isConditionTrue_0 = false;
 }
 if (isConditionTrue_0) {
 {eventsFunctionContext.returnValue = true;}
+elseEventsChainSatisfied = true;
 }
 
 }
@@ -547,6 +554,7 @@ gdjs.copyArray(eventsFunctionContext.getObjects("Object"), gdjs.evtsExt__Flash__
     gdjs.evtsExt__Flash__Flash.Flash.prototype.onDeActivateContext.GDObjectObjects1[i].getBehavior(eventsFunctionContext.getBehaviorName("Behavior")).Stop(eventsFunctionContext);
 }
 }
+elseEventsChainSatisfied = true;
 }
 
 }
@@ -659,6 +667,7 @@ gdjs.copyArray(eventsFunctionContext.getObjects("Object"), gdjs.evtsExt__Flash__
     gdjs.evtsExt__Flash__Flash.Flash.prototype.StopContext.GDObjectObjects1[i].removeTimer("Flash_Visibility_Duration_Timer");
 }
 }
+elseEventsChainSatisfied = true;
 }
 
 }
@@ -754,6 +763,7 @@ gdjs.evtsExt__Flash__Flash.Flash.prototype.HalfPeriodTimeContext.eventsList0 = f
 let isConditionTrue_0 = false;
 {
 {eventsFunctionContext.returnValue = eventsFunctionContext.getObjects("Object")[0].getBehavior(eventsFunctionContext.getBehaviorName("Behavior"))._getHalfPeriodTime();}
+elseEventsChainSatisfied = true;
 }
 
 }
@@ -850,6 +860,7 @@ let isConditionTrue_0 = false;
 {
 {eventsFunctionContext.getObjects("Object")[0].getBehavior(eventsFunctionContext.getBehaviorName("Behavior"))._setHalfPeriodTime(eventsFunctionContext.getArgument("Value"))
 }
+elseEventsChainSatisfied = true;
 }
 
 }

@@ -56,6 +56,7 @@ gdjs.copyArray(gdjs.evtsExt__RectangleMovement__MoveAlongBorderOfObject.GDMoving
     gdjs.evtsExt__RectangleMovement__MoveAlongBorderOfObject.GDMovingObjectObjects5[i].returnVariable(gdjs.evtsExt__RectangleMovement__MoveAlongBorderOfObject.GDMovingObjectObjects5[i].getVariables().get("__RectangleMovement").getChild("DistanceToClosestEdge")).setNumber(Math.min((gdjs.RuntimeObject.getVariableNumber(gdjs.evtsExt__RectangleMovement__MoveAlongBorderOfObject.GDMovingObjectObjects5[i].getVariables().get("__RectangleMovement").getChild("DistanceToClosestEdge"))), gdjs.evtsExt__RectangleMovement__DistanceToClosestEdge.func(runtimeScene, gdjs.evtsExt__RectangleMovement__MoveAlongBorderOfObject.mapOfGDgdjs_9546evtsExt_9595_9595RectangleMovement_9595_9595MoveAlongBorderOfObject_9546GDCenterObjectObjects5Objects, gdjs.evtsExt__RectangleMovement__MoveAlongBorderOfObject.mapOfGDgdjs_9546evtsExt_9595_9595RectangleMovement_9595_9595MoveAlongBorderOfObject_9546GDMovingObjectObjects5Objects, eventsFunctionContext)));
 }
 }
+elseEventsChainSatisfied = true;
 }
 
 }
@@ -126,6 +127,7 @@ if (isConditionTrue_0) {
     gdjs.evtsExt__RectangleMovement__MoveAlongBorderOfObject.GDMovingObjectObjects5[i].setVariableBoolean(gdjs.evtsExt__RectangleMovement__MoveAlongBorderOfObject.GDMovingObjectObjects5[i].getVariables().get("__RectangleMovement").getChild("Linked"), true);
 }
 }
+elseEventsChainSatisfied = true;
 }
 
 }
@@ -168,6 +170,7 @@ gdjs.copyArray(gdjs.evtsExt__RectangleMovement__MoveAlongBorderOfObject.GDMoving
     gdjs.evtsExt__RectangleMovement__MoveAlongBorderOfObject.GDMovingObjectObjects3[i].returnVariable(gdjs.evtsExt__RectangleMovement__MoveAlongBorderOfObject.GDMovingObjectObjects3[i].getVariables().get("__RectangleMovement").getChild("DistanceToClosestEdge")).setNumber(gdjs.evtsExt__RectangleMovement__DistanceToClosestEdge.func(runtimeScene, gdjs.evtsExt__RectangleMovement__MoveAlongBorderOfObject.mapOfGDgdjs_9546evtsExt_9595_9595RectangleMovement_9595_9595MoveAlongBorderOfObject_9546GDCenterObjectObjects3Objects, gdjs.evtsExt__RectangleMovement__MoveAlongBorderOfObject.mapOfGDgdjs_9546evtsExt_9595_9595RectangleMovement_9595_9595MoveAlongBorderOfObject_9546GDMovingObjectObjects3Objects, eventsFunctionContext));
 }
 }
+elseEventsChainSatisfied = true;
 }
 
 }
@@ -239,6 +242,7 @@ if (isConditionTrue_0) {
 
 { //Subevents
 gdjs.evtsExt__RectangleMovement__MoveAlongBorderOfObject.eventsList6(runtimeScene, eventsFunctionContext);} //End of subevents
+elseEventsChainSatisfied = true;
 }
 
 }
@@ -292,6 +296,7 @@ gdjs.copyArray(gdjs.evtsExt__RectangleMovement__MoveAlongBorderOfObject.GDMoving
     gdjs.evtsExt__RectangleMovement__MoveAlongBorderOfObject.GDMovingObjectObjects4[i].getBehavior(eventsFunctionContext.getBehaviorName("RectangleMovement")).SetRight((( gdjs.evtsExt__RectangleMovement__MoveAlongBorderOfObject.GDCenterObjectObjects4.length === 0 ) ? 0 :gdjs.evtsExt__RectangleMovement__MoveAlongBorderOfObject.GDCenterObjectObjects4[0].getAABBRight()) - (gdjs.evtsExt__RectangleMovement__MoveAlongBorderOfObject.GDMovingObjectObjects4[i].getWidth()), eventsFunctionContext);
 }
 }
+elseEventsChainSatisfied = true;
 }
 
 }
@@ -327,6 +332,7 @@ gdjs.copyArray(gdjs.evtsExt__RectangleMovement__MoveAlongBorderOfObject.GDMoving
     gdjs.evtsExt__RectangleMovement__MoveAlongBorderOfObject.GDMovingObjectObjects4[i].getBehavior(eventsFunctionContext.getBehaviorName("RectangleMovement")).SetRight((( gdjs.evtsExt__RectangleMovement__MoveAlongBorderOfObject.GDCenterObjectObjects4.length === 0 ) ? 0 :gdjs.evtsExt__RectangleMovement__MoveAlongBorderOfObject.GDCenterObjectObjects4[0].getAABBRight()) - (gdjs.evtsExt__RectangleMovement__MoveAlongBorderOfObject.GDMovingObjectObjects4[i].getWidth()) / 2, eventsFunctionContext);
 }
 }
+elseEventsChainSatisfied = true;
 }
 
 }
@@ -360,6 +366,7 @@ if (isConditionTrue_0) {
     gdjs.evtsExt__RectangleMovement__MoveAlongBorderOfObject.GDMovingObjectObjects3[i].getBehavior(eventsFunctionContext.getBehaviorName("RectangleMovement")).SetRight((( gdjs.evtsExt__RectangleMovement__MoveAlongBorderOfObject.GDCenterObjectObjects3.length === 0 ) ? 0 :gdjs.evtsExt__RectangleMovement__MoveAlongBorderOfObject.GDCenterObjectObjects3[0].getAABBRight()), eventsFunctionContext);
 }
 }
+elseEventsChainSatisfied = true;
 }
 
 }
@@ -403,6 +410,7 @@ if (isConditionTrue_0) {
 
 { //Subevents
 gdjs.evtsExt__RectangleMovement__MoveAlongBorderOfObject.eventsList11(runtimeScene, eventsFunctionContext);} //End of subevents
+elseEventsChainSatisfied = true;
 }
 
 }

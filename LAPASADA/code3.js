@@ -41,6 +41,7 @@ if (isConditionTrue_0) {
     gdjs.winCode.GDMenuButtonObjects1[i].deleteFromScene(runtimeScene);
 }
 }
+elseEventsChainSatisfied = true;
 }
 
 }

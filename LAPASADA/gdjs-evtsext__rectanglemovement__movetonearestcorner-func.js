@@ -50,6 +50,7 @@ gdjs.copyArray(eventsFunctionContext.getObjects("CenterObject"), gdjs.evtsExt__R
 /* Reuse gdjs.evtsExt__RectangleMovement__MoveToNearestCorner.GDMovingObjectObjects1 */
 {gdjs.evtsExt__RectangleMovement__MoveAlongBorderOfObject.func(runtimeScene, gdjs.evtsExt__RectangleMovement__MoveToNearestCorner.mapOfGDgdjs_9546evtsExt_9595_9595RectangleMovement_9595_9595MoveToNearestCorner_9546GDMovingObjectObjects1Objects, eventsFunctionContext.getBehaviorName("RectangleMovement"), gdjs.evtsExt__RectangleMovement__MoveToNearestCorner.mapOfGDgdjs_9546evtsExt_9595_9595RectangleMovement_9595_9595MoveToNearestCorner_9546GDCenterObjectObjects1Objects, "", eventsFunctionContext);
 }
+elseEventsChainSatisfied = true;
 }
 
 }
@@ -82,6 +83,7 @@ gdjs.copyArray(gdjs.evtsExt__RectangleMovement__MoveToNearestCorner.GDMovingObje
     gdjs.evtsExt__RectangleMovement__MoveToNearestCorner.GDMovingObjectObjects4[i].getBehavior(eventsFunctionContext.getBehaviorName("RectangleMovement")).TeleportToCorner("Top-left corner", eventsFunctionContext);
 }
 }
+elseEventsChainSatisfied = true;
 }
 
 }
@@ -116,6 +118,7 @@ if (isConditionTrue_0) {
     gdjs.evtsExt__RectangleMovement__MoveToNearestCorner.GDMovingObjectObjects4[i].getBehavior(eventsFunctionContext.getBehaviorName("RectangleMovement")).TeleportToCorner("Top-right corner", eventsFunctionContext);
 }
 }
+elseEventsChainSatisfied = true;
 }
 
 }
@@ -150,6 +153,7 @@ if (isConditionTrue_0) {
     gdjs.evtsExt__RectangleMovement__MoveToNearestCorner.GDMovingObjectObjects4[i].getBehavior(eventsFunctionContext.getBehaviorName("RectangleMovement")).TeleportToCorner("Bottom-left corner", eventsFunctionContext);
 }
 }
+elseEventsChainSatisfied = true;
 }
 
 }
@@ -182,6 +186,7 @@ if (isConditionTrue_0) {
     gdjs.evtsExt__RectangleMovement__MoveToNearestCorner.GDMovingObjectObjects3[i].getBehavior(eventsFunctionContext.getBehaviorName("RectangleMovement")).TeleportToCorner("Bottom-right corner", eventsFunctionContext);
 }
 }
+elseEventsChainSatisfied = true;
 }
 
 }
@@ -202,6 +207,7 @@ if (isConditionTrue_0) {
 
 { //Subevents
 gdjs.evtsExt__RectangleMovement__MoveToNearestCorner.eventsList1(runtimeScene, eventsFunctionContext);} //End of subevents
+elseEventsChainSatisfied = true;
 }
 
 }

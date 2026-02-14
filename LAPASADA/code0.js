@@ -36,6 +36,7 @@ gdjs.menuCode.GDPlayButtonObjects1.length = k;
 if (isConditionTrue_0) {
 {gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "Nivel", false);
 }
+elseEventsChainSatisfied = true;
 }
 
 }

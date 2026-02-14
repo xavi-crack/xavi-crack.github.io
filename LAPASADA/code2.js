@@ -20,18 +20,23 @@ gdjs.GameOverCode.eventsList0 = function(runtimeScene) {
 
 let isConditionTrue_0 = false;
 isConditionTrue_0 = false;
-/* Unknown instruction - skipped. */if (isConditionTrue_0) {
+isConditionTrue_0 = gdjs.evtTools.runtimeScene.sceneJustBegins(runtimeScene);
+if (isConditionTrue_0) {
 gdjs.copyArray(runtimeScene.getObjects("GameOverText"), gdjs.GameOverCode.GDGameOverTextObjects1);
 gdjs.copyArray(runtimeScene.getObjects("Reiniciar_"), gdjs.GameOverCode.GDReiniciar_9595Objects1);
 {for(var i = 0, len = gdjs.GameOverCode.GDGameOverTextObjects1.length ;i < len;++i) {
     gdjs.GameOverCode.GDGameOverTextObjects1[i].getBehavior("Text").setText("");
 }
 }
-{/* Unknown instruction - skipped. */}
+{for(var i = 0, len = gdjs.GameOverCode.GDReiniciar_9595Objects1.length ;i < len;++i) {
+    gdjs.GameOverCode.GDReiniciar_9595Objects1[i].hide(false);
+}
+}
 {for(var i = 0, len = gdjs.GameOverCode.GDReiniciar_9595Objects1.length ;i < len;++i) {
     gdjs.GameOverCode.GDReiniciar_9595Objects1[i].Activate(true, null);
 }
 }
+elseEventsChainSatisfied = true;
 }
 
 }
@@ -54,6 +59,7 @@ gdjs.GameOverCode.GDReiniciar_9595Objects1.length = k;
 if (isConditionTrue_0) {
 {gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "Nivel", true);
 }
+elseEventsChainSatisfied = true;
 }
 
 }
@@ -76,6 +82,7 @@ gdjs.GameOverCode.GDRetryButton2Objects1.length = k;
 if (isConditionTrue_0) {
 {gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "menu", true);
 }
+elseEventsChainSatisfied = true;
 }
 
 }
