@@ -18,13 +18,16 @@
             src: url('./CobayasFont-Regular.ttf') format('truetype');
         }
 
-        /* --- COLORES (B&W) --- */
+        /* --- PALETA DE COLORES UNIFICADA --- */
         :root {
-            --bg-color: #000000;
-            --card-bg: #111111;
-            --text-color: #ffffff;
+            --bg-color: #222222;
+            --text-color: #F9f4da; 
+            --text-muted: #dcd8c0; 
+            --card-bg: #1a1a1a;
+            --border-color: rgba(249, 244, 218, 0.2);
         }
 
+        /* --- ESTILOS GENERALES --- */
         body {
             margin: 0;
             padding: 0;
@@ -32,28 +35,31 @@
             color: var(--text-color);
             font-family: 'Montserrat', sans-serif;
             padding-bottom: 60px;
+            /* Animación de entrada */
+            animation: aparecer 0.8s ease-out;
         }
 
-        a { text-decoration: none; color: white; transition: 0.3s; }
+        a { text-decoration: none; color: var(--text-color); transition: 0.3s; }
 
-        /* --- HEADER (MEDIDAS EXACTAS) --- */
+        /* --- HEADER (UNIFICADO) --- */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 15px 40px; 
-            background-color: rgba(0, 0, 0, 0.95);
-            border-bottom: 1px solid #333;
+            background-color: rgba(34, 34, 34, 0.95);
+            border-bottom: 1px solid var(--border-color);
             position: sticky;
             top: 0;
             z-index: 1000;
+            backdrop-filter: blur(5px);
         }
 
         .logo {
             font-family: 'CobayasFont';
             font-size: 32px;
             letter-spacing: 2px;
-            color: white;
+            color: var(--text-color);
             line-height: 1;
         }
 
@@ -72,21 +78,23 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             
-            /* LÍNEAS DE ESTABILIDAD: */
+            /* MEDIDAS EXACTAS: */
             display: inline-block; 
             line-height: 1;       
             padding-bottom: 5px; 
             border-bottom: 2px solid transparent; 
+            color: var(--text-muted);
         }
 
         nav a:hover {
-            color: #fff;
-            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+            color: var(--text-color);
+            text-shadow: 0 0 8px rgba(249, 244, 218, 0.4);
         }
 
         /* Clase activa para Merch */
         nav a.active {
-            border-bottom: 2px solid white;
+            color: var(--text-color);
+            border-bottom: 2px solid var(--text-color);
         }
 
         /* --- TIENDA --- */
@@ -101,8 +109,9 @@
             text-align: center;
             font-size: 70px;
             margin-bottom: 60px;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid var(--border-color);
             padding-bottom: 20px;
+            color: var(--text-color);
         }
 
         .shop-grid {
@@ -114,7 +123,7 @@
         /* TARJETA DE PRODUCTO */
         .product-card {
             background-color: var(--card-bg);
-            border: 1px solid #333;
+            border: 1px solid var(--border-color);
             border-radius: 8px;
             overflow: hidden;
             transition: transform 0.3s ease, border-color 0.3s ease;
@@ -124,23 +133,36 @@
 
         .product-card:hover {
             transform: translateY(-5px);
-            border-color: #555;
+            border-color: var(--text-color);
         }
 
         .product-image {
             width: 100%;
-            height: 300px; /* Imagen cuadrada/alta para ver bien el diseño */
-            background-color: #222;
+            height: 300px; /* Imagen cuadrada/alta */
+            background-color: #111;
             object-fit: cover;
-            border-bottom: 1px solid #333;
-            /* Efecto opcional: blanco y negro para las fotos */
+            border-bottom: 1px solid var(--border-color);
+            
+            /* Efecto artístico: Blanco y negro por defecto */
             filter: grayscale(100%); 
             transition: filter 0.3s;
         }
 
-        /* Al pasar el mouse, la foto recupera su color (si tuviera) */
+        /* Al pasar el mouse, la foto recupera su color */
         .product-card:hover .product-image {
             filter: grayscale(0%);
+        }
+
+        /* Placeholder para imagen */
+        .placeholder-box {
+            background: #151515; 
+            display:flex; 
+            align-items:center; 
+            justify-content:center; 
+            color: var(--text-muted);
+            font-family: 'CobayasFont';
+            font-size: 24px;
+            letter-spacing: 2px;
         }
 
         .product-info {
@@ -157,55 +179,53 @@
             font-size: 28px;
             margin: 10px 0;
             line-height: 1;
+            color: var(--text-color);
         }
 
         .product-price {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             font-size: 18px;
-            color: #ccc;
+            color: var(--text-muted);
             margin-bottom: 15px;
         }
 
+        /* Botón de compra actualizado */
         .buy-btn {
             display: block;
-            background-color: white;
-            color: black;
+            background-color: transparent;
+            border: 1px solid var(--text-color);
+            color: var(--text-color);
             padding: 10px 0;
             font-family: 'Montserrat', sans-serif;
             font-weight: bold;
             text-transform: uppercase;
             font-size: 14px;
             border-radius: 4px;
-            border: 1px solid white;
             transition: all 0.3s;
         }
 
         .buy-btn:hover {
-            background-color: black;
-            color: white;
+            background-color: var(--text-color);
+            color: var(--bg-color); /* Texto oscuro para contraste */
             cursor: pointer;
+            box-shadow: 0 0 10px rgba(249, 244, 218, 0.3);
         }
-
+        
         @media (max-width: 768px) {
             header { flex-direction: column; gap: 15px; }
             nav ul { flex-wrap: wrap; justify-content: center; }
         }
 
         /* --- ANIMACIÓN DE ENTRADA SUAVE --- */
-        body {
-            /* La magia ocurre aquí: */
-            animation: aparecer 0.8s ease-out;
-        }
-
         @keyframes aparecer {
             0% {
                 opacity: 0;
-                transform: translateY(10px); /* Empieza un poco más abajo */
+                transform: translateY(10px); 
             }
             100% {
                 opacity: 1;
-                transform: translateY(0); /* Termina en su lugar */
+                transform: translateY(0); 
             }
         }
     </style>
@@ -239,7 +259,7 @@
             </article>
 
             <article class="product-card">
-                <div class="product-image" style="background: #222; display:flex; align-items:center; justify-content:center; color:#555;">
+                <div class="product-image placeholder-box">
                     IMG PACK
                 </div>
                 <div class="product-info">
@@ -250,7 +270,9 @@
             </article>
 
             <article class="product-card">
-                <div class="product-image" style="background: #222;"></div>
+                <div class="product-image placeholder-box">
+                    UMIÑA ART
+                </div>
                 <div class="product-info">
                     <h2 class="product-title">Print Umiña</h2>
                     <span class="product-price">$15.00</span>
@@ -259,7 +281,9 @@
             </article>
 
             <article class="product-card">
-                <div class="product-image" style="background: #181818;"></div>
+                <div class="product-image placeholder-box">
+                    TOTE BAG
+                </div>
                 <div class="product-info">
                     <h2 class="product-title">Tote Bag</h2>
                     <span class="product-price">$20.00</span>

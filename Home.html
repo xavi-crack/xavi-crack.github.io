@@ -18,10 +18,22 @@
             src: url('./CobayasFont-Regular.ttf') format('truetype');
         }
 
+        /* --- PALETA DE COLORES --- */
         :root {
-            --bg-color: #000000;
-            --text-color: #ffffff;
-            --accent-color: #cccccc; 
+            /* Tu fondo gris oscuro */
+            --bg-color: #222222;
+            
+            /* Tu color crema/hueso (reemplaza al blanco) */
+            --text-color: #F9f4da; 
+            
+            /* Un tono un poco más oscuro para textos secundarios */
+            --text-muted: #dcd8c0; 
+            
+            /* Color de fondo para las tarjetas (un poco más oscuro que el fondo para contraste) */
+            --card-bg: #1a1a1a;
+            
+            /* Color de los bordes (el mismo crema pero con transparencia) */
+            --border-color: rgba(249, 244, 218, 0.2);
         }
 
         /* --- ESTILOS GENERALES --- */
@@ -32,17 +44,25 @@
             color: var(--text-color);
             font-family: 'Montserrat', sans-serif; 
             line-height: 1.6;
+            /* ANIMACIÓN DE ENTRADA SUAVE */
+            animation: aparecer 0.8s ease-out;
+        }
+
+        @keyframes aparecer {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         h1, h2, h3 {
             font-family: 'CobayasFont', sans-serif;
             font-weight: normal;
+            color: var(--text-color);
         }
 
         a {
             text-decoration: none;
-            color: white;
-            transition: color 0.3s ease;
+            color: var(--text-color);
+            transition: color 0.3s ease, text-shadow 0.3s ease;
         }
 
         /* --- BARRA DE NAVEGACIÓN (HEADER) --- */
@@ -53,16 +73,18 @@
             padding: 15px 40px; 
             position: sticky;
             top: 0;
-            background-color: rgba(0, 0, 0, 0.95);
+            /* Usamos el color de fondo con un poco de transparencia */
+            background-color: rgba(34, 34, 34, 0.95);
             z-index: 1000;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid var(--border-color);
+            backdrop-filter: blur(5px); /* Efecto borroso detrás del menú */
         }
 
         .logo {
             font-family: 'CobayasFont';
             font-size: 32px;
             letter-spacing: 2px;
-            color: white;
+            color: var(--text-color);
             line-height: 1;
         }
 
@@ -84,16 +106,18 @@
             line-height: 1;        
             padding-bottom: 5px;   
             border-bottom: 2px solid transparent; 
+            color: var(--text-muted); /* Color reposo un poco apagado */
         }
 
         nav a:hover {
-            color: #fff;
-            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+            color: var(--text-color);
+            text-shadow: 0 0 8px rgba(249, 244, 218, 0.4); /* Brillo crema */
         }
 
         /* Clase para el botón activo */
         nav a.active {
-            border-bottom: 2px solid white;
+            color: var(--text-color);
+            border-bottom: 2px solid var(--text-color);
         }
 
         /* --- SECCIÓN DE NOTICIAS --- */
@@ -107,18 +131,26 @@
             text-align: center;
             font-size: 70px;
             margin-bottom: 50px;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid var(--border-color);
             padding-bottom: 20px;
+            color: var(--text-color);
         }
 
         .news-item {
             display: flex;
             gap: 30px;
             margin-bottom: 60px;
-            background-color: #111;
-            border: 1px solid #222;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
             padding: 20px;
             border-radius: 8px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        /* Efecto al pasar el mouse por encima de la noticia */
+        .news-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--text-color);
         }
 
         .news-image {
@@ -131,6 +163,21 @@
             height: auto;
             border-radius: 4px;
             display: block;
+            border: 1px solid #333;
+        }
+
+        /* Caja gris placeholder estilizada */
+        .placeholder-img {
+            background-color: #111; 
+            height: 200px; 
+            display:flex; 
+            align-items:center; 
+            justify-content:center; 
+            color: var(--text-muted); 
+            font-family:'CobayasFont'; 
+            font-size:30px;
+            border: 1px dashed var(--border-color);
+            border-radius: 4px;
         }
 
         .news-content {
@@ -143,7 +190,7 @@
         .news-date {
             font-family: 'Montserrat', sans-serif;
             font-size: 12px;
-            color: #888;
+            color: var(--text-muted); /* Color secundario */
             margin-bottom: 5px;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -153,53 +200,18 @@
             font-size: 40px;
             margin: 0 0 10px 0;
             line-height: 1;
+            color: var(--text-color);
         }
 
         .news-text {
             font-size: 16px;
-            color: #ccc;
-        }
-
-        /* Estilo para el botón de la reunión */
-        .meet-link {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 20px;
-            background-color: #fff;
-            color: #000;
-            font-weight: bold;
-            border-radius: 4px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 14px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .meet-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
-            color: #000; /* Asegura que el texto siga negro */
+            color: var(--text-muted); /* Texto de párrafo más suave */
         }
 
         @media (max-width: 768px) {
             .news-item { flex-direction: column; }
             header { flex-direction: column; gap: 15px; }
             nav ul { flex-wrap: wrap; justify-content: center; }
-        }
-
-        /* --- ANIMACIÓN DE ENTRADA SUAVE --- */
-        body {
-            animation: aparecer 0.8s ease-out;
-        }
-
-        @keyframes aparecer {
-            0% {
-                opacity: 0;
-                transform: translateY(10px); 
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0); 
-            }
         }
     </style>
 </head>
@@ -222,26 +234,6 @@
         
         <h1 class="page-title">Actualizaciones</h1>
 
-        <article class="news-item" style="border: 1px solid #444; background-color: #1a1a1a;">
-            <div class="news-image">
-                <div style="background-color: #000; height: 100%; min-height: 200px; display:flex; align-items:center; justify-content:center; color:#fff; font-family:'CobayasFont'; font-size:30px; text-align: center; border: 1px dashed #555;">
-                    EVENTO<br>EN VIVO
-                </div>
-            </div>
-            <div class="news-content">
-                <span class="news-date" style="color: #fff;">29 Enero 2026 - 19:00 PM</span>
-                <h2 class="news-title">Lanzamiento Oficial: Proyecto Cobayas</h2>
-                <p class="news-text">
-                    ¡Es el momento! Acompáñanos este jueves 29 de enero en la presentación pública 
-                    de nuestro nuevo videojuego. Mostraremos gameplay en vivo y hablaremos 
-                    del futuro del estudio.
-                </p>
-                <a href="https://calendar.app.google/SG21xtiDQTSnWJB76" target="_blank" class="meet-link">
-                    UNIRSE A LA REUNIÓN
-                </a>
-            </div>
-        </article>
-
         <article class="news-item">
             <div class="news-image">
                 <img src="logo1.png" alt="Imagen de la noticia">
@@ -259,7 +251,7 @@
 
         <article class="news-item">
             <div class="news-image">
-                <div style="background-color: #222; height: 200px; display:flex; align-items:center; justify-content:center; color:#555; font-family:'CobayasFont'; font-size:30px;">
+                <div class="placeholder-img">
                     COBAYAS
                 </div>
             </div>

@@ -20,7 +20,7 @@
 
         /* --- 2. ESTILO GENERAL (Blanco y Negro) --- */
         body {
-            background-color: #000000;
+            background-color: #222222;
             color: #ffffff;
             font-family: 'Montserrat', sans-serif; /* Texto normal */
             margin: 0;
@@ -105,11 +105,12 @@
             border-color: #ffffff; 
         }
 
+        /* CAMBIO IMPORTANTE: Ahora esto aplica a la imagen IMG */
         .game-image {
             width: 100%;
             height: 180px;
             background-color: #222;
-            object-fit: cover;
+            object-fit: cover; /* Esto hace que la foto se recorte bien sin deformarse */
             border-bottom: 1px solid #333;
         }
 
@@ -180,16 +181,16 @@
     <div class="gallery-container">
 
         <div class="game-card">
-            <div class="game-image"></div> 
+            <img src="IMG_0052.PNG" class="game-image" alt="Portada La Pasada">
             
             <div class="card-content">
-                <h2>La Pasada</h2>
+                <h2>LA PASADA</h2>
                 <p>
                     Aventura de plataformas en el Chimborazo creada en 48 horas.
                     Ayuda a Sami a recuperar las máscaras perdidas del Pawkar Raymi.
                 </p>
 
-                <a href="la pasada0/index.html" class="play-btn">JUGAR AHORA</a>
+                <a href="LAPASADA/index.html" class="play-btn">JUGAR AHORA</a>
             </div>
         </div>
 
