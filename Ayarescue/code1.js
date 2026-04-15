@@ -2893,7 +2893,7 @@ gdjs.copyArray(gdjs.NivelCode.GDenemy3Objects1_1final, gdjs.NivelCode.GDenemy3Ob
 }
 if (isConditionTrue_0) {
 isConditionTrue_0 = false;
-{isConditionTrue_0 = runtimeScene.getOnceTriggers().triggerOnce(13537308);
+{isConditionTrue_0 = runtimeScene.getOnceTriggers().triggerOnce(21109732);
 }
 }
 if (isConditionTrue_0) {
@@ -3082,7 +3082,7 @@ isConditionTrue_0 = false;
 isConditionTrue_0 = gdjs.evtTools.object.hitBoxesCollisionTest(gdjs.NivelCode.mapOfGDgdjs_9546NivelCode_9546GDSamiObjects1ObjectsGDgdjs_9546NivelCode_9546GDHUMAObjects1ObjectsGDgdjs_9546NivelCode_9546GDLATAObjects1ObjectsGDgdjs_9546NivelCode_9546GDCURIQUINGUEObjects1Objects, gdjs.NivelCode.mapOfGDgdjs_9546NivelCode_9546GDpinchosObjects1Objects, false, runtimeScene, false);
 if (isConditionTrue_0) {
 isConditionTrue_0 = false;
-{isConditionTrue_0 = runtimeScene.getOnceTriggers().triggerOnce(9593260);
+{isConditionTrue_0 = runtimeScene.getOnceTriggers().triggerOnce(21120764);
 }
 }
 if (isConditionTrue_0) {
@@ -3486,7 +3486,7 @@ for (var i = 0, k = 0, l = gdjs.NivelCode.GDHUMAObjects1.length;i<l;++i) {
 gdjs.NivelCode.GDHUMAObjects1.length = k;
 if (isConditionTrue_0) {
 isConditionTrue_0 = false;
-{isConditionTrue_0 = runtimeScene.getOnceTriggers().triggerOnce(16328748);
+{isConditionTrue_0 = runtimeScene.getOnceTriggers().triggerOnce(21152132);
 }
 }
 }
